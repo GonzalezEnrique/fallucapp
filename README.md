@@ -20,4 +20,4 @@ Clases a utilizar para organizar mejor el código
 
 - index.php
 
-De momento queda así (potencial router)
+De momento queda así.
