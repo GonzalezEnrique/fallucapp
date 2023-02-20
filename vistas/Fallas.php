@@ -6,24 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fallucapp</title>
     <style>
-        .img1 {
-            margin-bottom: 0px;
-        }
-        .img2 {
-            margin-bottom: 35px;
-        }
+        
+        
     </style>
 </head>
 <header>
    
     <a href="fallucap.php">
-        <img src="../Imagenes/menu.png" width="40" height="40" align="left">Fallas
+        <img src="/recursos/imagenes/menu.png" width="40" height="40" align="left">Fallas
         
    
     </a>
     <div>
-        <img src="../Imagenes/lupa.jpg"width="50" height="50" align="right">
-        <img src="../Imagenes/mas.png"width="50" height="50" align="right">
+        <img src="/recursos/imagenes/lupa.jpg"width="50" height="50" align="right">
+        <img src="/recursos/imagenes/mas.png"width="50" height="50" align="right">
         
         
     </div>

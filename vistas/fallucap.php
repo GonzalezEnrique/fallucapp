@@ -19,7 +19,7 @@
         <h3>Buscar</h3>
         <div>
         
-            <img src="Imagenes/lupa.jpg" width="80" height="80">
+            <img src="/recursos/imagenes/lupa.jpg" width="80" height="80">
             
         </div>
         <tr>
@@ -27,21 +27,21 @@
         <a href="Fallas.php"><h3>Fallas</h3></a>
         <div>
             
-            <img src="Imagenes/fallas.jpg" width="80" height="80 ">
+            <img src="/recursos/imagenes/fallas.jpg" width="80" height="80 ">
         </div>
     </td>
     <td>
-        <a href="dispositivos.php"><h3>Dispositivos</h3></a>
+        <a href="Contenido/Dispositivos.php"><h3>Dispositivos</h3></a>
         <div>
         
-            <img src="Imagenes/dispositivo.jpg" width="80" height="80 ">
+            <img src="/recursos/imagenes/dispositivo.jpg" width="80" height="80 ">
         </div>
     </td>
     <td>
-        <a href="protocolos.php"><h3>Protocolos</h3></a>
+        <a href="Contenido/Protocolos.php"><h3>Protocolos</h3></a>
         <div>
         
-            <img src="Imagenes/protocolo.png" width="80" height="80 ">
+            <img src="/recursos/imagenes/protocolo.png" width="80" height="80 ">
         </div>
     </nav>
 </header>
