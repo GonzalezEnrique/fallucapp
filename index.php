@@ -1,5 +1,5 @@
 <?php
 
-echo "No modificar por el momento";
+require 'config/router.php';
 
 ?>
