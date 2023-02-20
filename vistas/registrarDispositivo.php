@@ -19,7 +19,6 @@
         <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
         <label>Configuración:</label>
         <input type="text" name="configuracion" id="configuracion" placeholder="Configuración">
-        <p><input type="submit" value="Registrar"></p>
         <p><input type="submit" value="Agregar"></p>
     </section>
 </body>
