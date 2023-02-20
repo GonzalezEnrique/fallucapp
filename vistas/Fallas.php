@@ -16,7 +16,7 @@
 </head>
 <header>
    
-    <a href="../index.html">
+    <a href="fallucap.php">
         <img src="../Imagenes/menu.png" width="40" height="40" align="left">Fallas
         
    

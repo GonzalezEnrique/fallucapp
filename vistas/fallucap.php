@@ -24,21 +24,21 @@
         </div>
         <tr>
             <td>
-        <a href="Contenido/Fallas.html"><h3>Fallas</h3></a>
+        <a href="Fallas.php"><h3>Fallas</h3></a>
         <div>
             
             <img src="Imagenes/fallas.jpg" width="80" height="80 ">
         </div>
     </td>
     <td>
-        <a href="Contenido/Dispositivos.html"><h3>Dispositivos</h3></a>
+        <a href="dispositivos.php"><h3>Dispositivos</h3></a>
         <div>
         
             <img src="Imagenes/dispositivo.jpg" width="80" height="80 ">
         </div>
     </td>
     <td>
-        <a href="Contenido/Protolos.html"><h3>Protocolos</h3></a>
+        <a href="protocolos.php"><h3>Protocolos</h3></a>
         <div>
         
             <img src="Imagenes/protocolo.png" width="80" height="80 ">
