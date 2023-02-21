@@ -31,14 +31,14 @@
         </div>
     </td>
     <td>
-        <a href="Contenido/Dispositivos.php"><h3>Dispositivos</h3></a>
+        <a href="dispositivos.php"><h3>Dispositivos</h3></a>
         <div>
         
             <img src="/recursos/imagenes/dispositivo.jpg" width="80" height="80 ">
         </div>
     </td>
     <td>
-        <a href="Contenido/Protocolos.php"><h3>Protocolos</h3></a>
+        <a href="protocolos.php"><h3>Protocolos</h3></a>
         <div>
         
             <img src="/recursos/imagenes/protocolo.png" width="80" height="80 ">
