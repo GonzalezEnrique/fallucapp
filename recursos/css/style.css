@@ -1,0 +1,22 @@
+body{
+    background-color: #ffffff;
+}
+header{
+    background-color: #2d4057;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman';
+}
+
+h1
+{
+    color: #f3deca;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
