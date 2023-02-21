@@ -2,7 +2,7 @@
 
 
 header{
-    background: #4097AA;
+    background: #2d4057;
     width: 100%;
     height: 80px; 
     background-size: cover;
@@ -16,16 +16,16 @@ header{
 }
 
 div.logo{
-    margin-left: 1%;
+   margin-left: 5%;
+   margin-bottom: 100%;
 }
 
 h1{
     font-family: "Arial Rounded MT Bold";
-    margin: 1.5%;
-    font-size: 45px;
-    text-shadow: 0 0 30px #fff;
-    -webkit-text-fill-color: #2d4057;
-    -webkit-text-stroke: 0.01px #2d4057;
+    font-size: 60px;
+    margin-left: 2%;
+    -webkit-text-fill-color: #4097aa;
+    -webkit-text-stroke: 0.01px #4097aa;
     text-align: right;
     
 }
@@ -38,7 +38,7 @@ h2{
     font-family: "Arial Rounded MT Bold";
     margin: 1.5%;
     font-size: 35px;
-    text-shadow: 0 0 30px #fff;
+    text-shadow: 0 0 80px #fff;
     -webkit-text-fill-color: #f49483;
     -webkit-text-stroke: 0.01px #f49483;
     text-align: center;
