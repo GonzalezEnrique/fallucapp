@@ -5,58 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar falla</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <header>
+    <a href="../index.html">
+        <div class="logo">
+            <img src="img/logo.png" width="80"> </img>
+        </div>
+    </a>
+
     <h1>Fallucapp</h1>
 </header>
 
 <body>
     <h2>Registrar falla</h2>
-    
-<form action="">
-    <p>
-        Código
-        <input type="text" name="codigo">
-    </p>
+     
+    <section id="formulario" name="formulario">
+        <table id="form">
+            <tr>
+                <td>Código</td>
+                <td><input type="text" name="codigo" id="codigo"></td>
+            </tr>
 
-    <p>
-        Nombre
-        <select name="nombre" id="nombre">
+            <tr>
+                <td>Nombre</td>
+                <td>
+                    <select name="nombre" id="nombre">
+                        <option value="">Seleccionar</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                </td>
+            </tr>
 
-        </select>
-    </p>
+            <tr>
+                <td>Ubicación</td>
+                <td><input type="text" name="ubicacion"></td>
+            </tr>
 
-    <p>
-        Ubicación
-        <input type="text" name="ubicacion">
-    </p>
+            <tr>
+                <td>Descripción</td>
+                <td> <textarea name="descripcion"></textarea></td>
+            </tr>
 
-    <p>
-        Descripción
-        <textarea name="descripcion"></textarea>
-    </p>
+            <tr>
+                <td>Dispositivo</td>
+                <td>
+                    <select name="dispositivo" id="dispositivo">
+                        <option>Seleccionar</option>
+                        <option>Router</option>
+                        <option>Switch</option>
+                      </select>
+                </td>
+            </tr>
 
-    <p>
-
-         Dispositivo
-      
-        <select name="dispositivo" id="dispositivo">
-      
-          <option>Seleccionar</option>
-      
-          <option>Router</option>
-      
-          <option>Switch</option>
-      
-        </select>
-      
-      </p>
-
-      <p><input type="submit" value="Registrar"></p>
-      
-
-</form>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Registrar"></td>
+            </tr>
+        </table>
+    </section>
     
 </body>
 
