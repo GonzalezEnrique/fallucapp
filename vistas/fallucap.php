@@ -36,7 +36,7 @@
         
         <div>
            
-            <img src="Imagenes/lupa.jpg" width="80" height="80">
+            <img src="/recursos/magenes/lupa.jpg" width="80" height="80">
             
         </div>
         <tr>
@@ -45,7 +45,7 @@
         <a href="Contenido/Fallas.php"> <h3>Fallas</h3></a>
         <div>
             
-            <img src="Imagenes/fallas.jpg" width="80" height="80 ">
+            <img src="/recursos/imagenes/fallas.jpg" width="80" height="80 ">
         </div>
     </div>
     </td>
@@ -54,7 +54,7 @@
         <a href="Contenido/Dispositivos.php"><div class="cuadro2"><h3>Dispositivos</h3></a>
         <div>
         
-            <img src="Imagenes/dispositivo.jpg" width="80" height="80 ">
+            <img src="/recursos/imagenes/dispositivo.jpg" width="80" height="80 ">
         </div>
     </div> 
     </td>
@@ -63,7 +63,7 @@
        
         <div>
         
-            <img src="Imagenes/protocolo.png" width="80" height="80 ">
+            <img src="/recursos/imagenes/protocolo.png" width="80" height="80 ">
         </div>
        
         
