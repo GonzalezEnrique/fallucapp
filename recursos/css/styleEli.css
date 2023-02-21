@@ -1,0 +1,53 @@
+body{
+background-color: white;
+overflow: hidden;
+}
+header{
+background-color: rgb(45,64,87);
+
+
+}
+
+#bloqueDispositivos{
+   
+ position: relative;
+ top: 10px; 
+ left: 20px;
+}
+
+
+#tablaDispositivos{
+position: relative;
+left: 32%;
+top: 80px;
+border: 50px;
+width: 100px;
+}
+
+#btnAgregarDispositivos{
+position: relative;
+left: 50%
+}
+
+#cajaBuscar{
+position: relative;
+left: 68%;
+top: -22px;
+
+}
+
+#btnBuscarDispositivos{
+position: relative;
+left: 80%;
+top: -61px;
+}
+td{
+
+    padding: 20px;
+}
+
+#h3Dis{
+color: rgb(243, 222, 202);
+padding: 15px;
+font-size: 20px;
+}
