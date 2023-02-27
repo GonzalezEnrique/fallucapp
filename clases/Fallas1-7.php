@@ -17,7 +17,7 @@ class falla{
         //      $this ->descripcion=$descripcion;
           //      $this ->ubicacion=$ubicacion;
             //      $this ->dispositivo=$dispositivo;
-    }
+    //}
     public function get_id(){
         return $this->id
     }
