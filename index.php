@@ -1,6 +1,6 @@
 <?php
 
-header('Location: vistas/fallucap.php');
+header('Location: vistas/Fallucapp.php');
 //require 'config/router.php';
 
 ?>
