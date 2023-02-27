@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar falla</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="../recusos/css/estilos.css">
+    <link rel="shortcut icon" href="../recusos/imagenes/logo.png" type="image/x-icon">
 </head>
 
 <header>
-    <a href="../index.html">
+    <a href="../vistas/Fallucapp.php">
         <div class="logo">
-            <img src="img/logo.png" width="80"> </img>
+            <img src="imagenes/logo.png" width="90"> </img>
         </div>
     </a>
 
@@ -19,52 +20,57 @@
 </header>
 
 <body>
-    <h2>Registrar falla</h2>
+
      
-    <section id="formulario" name="formulario">
-        <table id="form">
-            <tr>
-                <td>Código</td>
-                <td><input type="text" name="codigo" id="codigo"></td>
-            </tr>
+    <section id="form-register" name="form-register">
+        <form class="form">
+            <h2>Registrar falla</h2>
+            <div class="form_container">
 
-            <tr>
-                <td>Nombre</td>
-                <td>
-                    <select name="nombre" id="nombre">
-                        <option value="">Seleccionar</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                </td>
-            </tr>
-
-            <tr>
-                <td>Ubicación</td>
-                <td><input type="text" name="ubicacion"></td>
-            </tr>
-
-            <tr>
-                <td>Descripción</td>
-                <td> <textarea name="descripcion"></textarea></td>
-            </tr>
-
-            <tr>
-                <td>Dispositivo</td>
-                <td>
-                    <select name="dispositivo" id="dispositivo">
-                        <option>Seleccionar</option>
+                
+                <div class="fg">
+                    <label class="form_label" >Código</label>
+                    <input class="controls" type="text" name="codigo" id="codigo">
+                </div>
+    
+                <div class="fg">
+                    <label class="form_label">Nombre</label>
+                        <select class="controls" name="nombre" id="nombre">
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                </div>
+    
+                <div class="fg">
+                    <label class="form_label" >Ubicación</label>
+                    <input class="controls" type="text" name="ubicacion">
+                </div>
+    
+                <div class="fg">
+                    <label class="form_label" >Descripción</label>
+                    <textarea class="controls" name="descripcion"></textarea>
+                </div>
+    
+                <div class="fg">
+                    <label class="form_label" >Dispositivo</label>
+                    <select class="controls" name="dispositivo" id="dispositivo">
+                        <option></option>
                         <option>Router</option>
                         <option>Switch</option>
                       </select>
-                </td>
-            </tr>
+    
+                </div>
+                <input class="botons" type="submit" value="Registrar">
 
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Registrar"></td>
-            </tr>
-        </table>
+            </div>
+
+            
+
+        </form>
+
+                
     </section>
     
 </body>
