@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 27, 2023 at 04:12 PM
+-- Generation Time: Feb 27, 2023 at 06:20 PM
 -- Server version: 10.9.4-MariaDB
 -- PHP Version: 8.2.2
 
@@ -54,6 +54,10 @@ INSERT INTO `dispositivos` (`idDispositivo`, `nombre`, `ubicacion`, `descripcion
 --
 DELIMITER $$
 CREATE TRIGGER `ACTUALIZAR_INVENTARIO` AFTER INSERT ON `dispositivos` FOR EACH ROW UPDATE `inventario` SET cantidad = cantidad + 1 WHERE idTipoDisp = new.idTipoDisp
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `DISMINUIR_INVENTARIO` AFTER DELETE ON `dispositivos` FOR EACH ROW UPDATE `inventario` SET cantidad = cantidad - 1
 $$
 DELIMITER ;
 
