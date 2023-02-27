@@ -1,6 +1,6 @@
 <?php
 class protocolo {
-//
+
 private $id;
 private $nombre;
 private $tipo;
