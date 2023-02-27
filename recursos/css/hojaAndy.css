@@ -1,0 +1,44 @@
+.cuadro {
+    background-color: #476a94;
+    padding: 15px;
+    text-align: center; 
+}
+.letra{
+    font-family:'Arial Narrow';
+  font-size: 150%;
+    color: #fa9483;;
+    }
+
+       
+
+/* body{
+    /*  background-image: url("../IMAGENES/gato.png");*/
+      /*background-repeat: no-repeat;*/
+     /* color: black;
+  
+  
+  /*clase*/
+  .classnav{
+    display: flex;
+    justify-content: space-between;
+  }
+  .classnav a{
+      text-decoration: none;
+  }
+  #prinicpal{
+      width: 140px;
+      height: 90px;
+  }
+
+  .cuadro2 {
+    background-color:#F3DECA;
+    padding: 250px;
+    text-align: center;
+    
+    }
+    .letra2{
+        font-family: fantasy;
+       
+        font-size: 150%;
+        color: #4097aa;
+                }

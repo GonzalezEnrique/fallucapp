@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fallas</title>
+  
+    <title>Fallucapp</title>
     <link rel="stylesheet" href="hojaAndy.css">
 
 </head>
@@ -23,7 +24,6 @@
 <section id="secFormulario" name="secFormulario">
       <tr>
             <td><label for=""></label></td>
-            <img src="imagenes/Mas.png " width="50" height="50">
             <img src="imagenes/lupa.png " width="50" height="50">
             <td><input type="text" name="txnombre" id="txnombre"></td>
       
@@ -34,7 +34,12 @@
     <nav class="letra2">
     <nav class="classnav">
         
-
+<a href="Fallas.html">Fallas</a>
+<img src="imagenes/falla.png" width="100" height="100">
+<a href="Dispositivos.html">Dispositivos</a>
+<img src="imagenes/cableEthernet.png" width="120" height="120">
+<a href="Protocolos.html">Protocolos</a>
+<img src="imagenes/carpetaa.png" width="150" height="150">
 
 </nav>
 </nav>
