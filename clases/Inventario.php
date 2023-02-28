@@ -29,7 +29,7 @@ class Inventario {
         
         $datos = $conn->ejecutarConsulta($sql);
         $total = count($datos);
-        $total_page = 50;
+        $total_page = 20;
         $pages = ceil($total / $total_page);
         
         $start_record = ($page - 1) * $total_page;
