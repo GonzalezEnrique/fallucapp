@@ -34,8 +34,8 @@
                     <a href="../vistas/Fallas.php"><h2>Fallas</h2></a>
                 </div>
                 <div>
-                    <a href="../vistas/dispositivos.php"> <img src="../recursos/imagenes/cableEthernet.png" width="120" height="120"> </a>
-                    <a href="../vistas/dispositivos.php"> <h2>Dispositivos</h2></a>
+                    <a href="../vistas/inventario.php"> <img src="../recursos/imagenes/cableEthernet.png" width="120" height="120"> </a>
+                    <a href="../vistas/inventario.php"> <h2>Dispositivos</h2></a>
                 </div>
                 <div>
                     <a href="../vistas/protocolos.php">  <img src="../recursos/imagenes/carpetaa.png" width="120" height="120"> </a>
