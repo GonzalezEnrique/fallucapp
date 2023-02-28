@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar falla</title>
-    <link rel="stylesheet" href="../recusos/css/estilos.css">
-    <link rel="shortcut icon" href="../recusos/imagenes/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../recursos/css/estilos.css">
+    <link rel="shortcut icon" href="../recursos/imagenes/logo.png" type="image/x-icon">
 </head>
 
 <header>
     <a href="../vistas/Fallucapp.php">
         <div class="logo">
-            <img src="imagenes/logo.png" width="90"> </img>
+            <img src="../recursos/imagenes/logo.png" width="90"> </img>
         </div>
     </a>
 
@@ -55,24 +55,18 @@
     
                 <div class="fg">
                     <label class="form_label" >Dispositivo</label>
-                    <select class="controls" name="dispositivo" id="dispositivo">
-                        <option></option>
-                        <option>Router</option>
-                        <option>Switch</option>
-                      </select>
-    
+                        <select class="controls" name="dispositivo" id="dispositivo">
+                            <option></option>
+                            <option>Router</option>
+                            <option>Switch</option>
+                        </select>
+        
                 </div>
-                <input class="botons" type="submit" value="Registrar">
-
+                <input class="boton" type="submit" value="Registrar">
+                <input class="botons" type="submit" value="Cancelar">
             </div>
-
-            
-
-        </form>
-
-                
-    </section>
-    
+        </form>       
+    </section>   
 </body>
 
 
