@@ -55,9 +55,15 @@ if ($pagina_actual > $total_paginas) {
             <br>
         <?php endforeach; ?>
 
-        <?php for ($i = 1; $i <= $paginas; $i++): ?>
+        <?php
+            if ($total_paginas != 1) {
+                for ($i = 1; $i <= $total_paginas; $i++):
+        ?>
             <button><a href="inventario.php?page=<?= $i ?>"><?= $i ?></a></button>
-        <?php endfor; ?>
+        <?php
+                endfor;
+            }
+        ?>
     </section>
     
 </body>
