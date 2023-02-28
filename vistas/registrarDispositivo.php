@@ -43,7 +43,8 @@
                     <label class="form_label" for="configuracion">Configuración:</label>
                     <input class="controls" type="text" name="configuracion" id="configuracion" placeholder="Configuración">
                 </div>    
-                    <input class="botons" type="submit" value="Agregar">
+                    <input class="btnA" type="submit" value="Agregar">
+                    <input class="btnC" type="submit" value="Cancelar">
                     
             </div>
         </form>
