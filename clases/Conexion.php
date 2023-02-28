@@ -1,9 +1,9 @@
 <?php
 class ConexionBD {
-    private $host = "nombre_del_servidor"; 
-    private $usuario = "nombre_de_usuario"; 
-    private $contrasena = "contraseña"; 
-    private $nombre_bd = "nombre_de_la_base_de_datos";
+    private $host = "localhost"; 
+    private $usuario = "root"; 
+    private $contrasena = "contraseñadelroot"; 
+    private $nombre_bd = "fallucapp";
     private $conexion;
 
     //método para conectar a la base de datos

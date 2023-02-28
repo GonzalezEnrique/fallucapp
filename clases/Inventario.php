@@ -45,7 +45,3 @@ class Inventario {
         return [$resultado, $total, $page, $pages];
     }
 }
-
-// Valores sin importancia en el contructor, solo para probar la consulta
-$inv = new Inventario();
-$inv->get_all_inventario();
