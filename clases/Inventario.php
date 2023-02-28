@@ -29,7 +29,7 @@ class Inventario {
         
         $datos = $conn->ejecutarConsulta($sql);
         $total = count($datos);
-        $total_page = 2;
+        $total_page = 50;
         $pages = ceil($total / $total_page);
         
         $start_record = ($page - 1) * $total_page;
@@ -38,9 +38,9 @@ class Inventario {
         $resultado = $conn->ejecutarConsulta($sql2);
         
         // Visualizar
-        echo "<pre>";
-        var_dump($resultado);
-        echo "</pre>";
+        // echo "<pre>";
+        // var_dump($resultado);
+        // echo "</pre>";
         
         return [$resultado, $total, $page, $pages];
     }

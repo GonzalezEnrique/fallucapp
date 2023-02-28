@@ -1,3 +1,13 @@
+<?php
+
+include '../clases/Inventario.php';
+
+$inventario = new Inventario();
+$consulta = $inventario->get_all_inventario();
+$datos = $consulta[0];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +36,18 @@
     <h2 >Inventario</h2>
 
     <section id="listaInventario">
-       <a href=""> <ul><li>Tipo</li></ul></a>
+        <a href="">
+            <ul>
+                <li>Tipo</li>
+            </ul>
+        </a>
         <ul>Cantidad</ul>
+        <?php foreach ($datos as $dato): ?>
+            <ul>
+                <li><a href="dispositivos.php"><?= $dato['tipo']; ?></a></li>
+            </ul>
+            <p>Cantidad: <?= $dato['cantidad']; ?></p>
+        <?php endforeach; ?>
     </section>
     
 </body>
