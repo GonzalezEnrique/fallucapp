@@ -2,12 +2,23 @@
 
 include '../clases/Inventario.php';
 
+
+$pagina_actual = 1;
+if (isset($_GET['page'])) {
+    $pagina_actual = $_GET['page'];
+}
+
 $inventario = new Inventario();
-$consulta = $inventario->get_all_inventario();
+$consulta = $inventario->get_all_inventario($pagina_actual);
 $datos = $consulta[0];
+$pagina = $consulta[2];
+$total_paginas = $consulta[3];
+
+if ($pagina_actual > $total_paginas) {
+    header('Location: inventario.php?page=1');
+}
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,18 +47,17 @@ $datos = $consulta[0];
     <h2 >Inventario</h2>
 
     <section id="listaInventario">
-        <a href="">
-            <ul>
-                <li>Tipo</li>
-            </ul>
-        </a>
-        <ul>Cantidad</ul>
         <?php foreach ($datos as $dato): ?>
             <ul>
-                <li><a href="dispositivos.php"><?= $dato['tipo']; ?></a></li>
+                <li><a href="dispositivos.php?id=<?= $dato['id']; ?>"><?= $dato['tipo']; ?></a></li>
             </ul>
             <p>Cantidad: <?= $dato['cantidad']; ?></p>
+            <br>
         <?php endforeach; ?>
+
+        <?php for ($i = 1; $i <= $paginas; $i++): ?>
+            <button><a href="inventario.php?page=<?= $i ?>"><?= $i ?></a></button>
+        <?php endfor; ?>
     </section>
     
 </body>
