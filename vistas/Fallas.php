@@ -5,41 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fallas</title>
-    <link rel="stylesheet" href="hojaAndy.css">
+    <link rel="stylesheet" href="../recursos/css/hojaAndy.css">
+    <link rel="shortcut icon" href="../recursos/imagenes/logo.png" type="image/x-icon">
 
 </head>
 
 <header >
-    <div class="cuadro">
-    <nav class="classnav">
-        <a href="index.html">
-    
-            <img id="prinicpal" name="prinicpal" src= "imagenes/casita.png"> </a>
-            <nav class="letra">
-                
-            <h2>Fallucapp</h2>
-        </nav>
+    <a href="../vistas/Fallucapp.php">
+        <div class="logo"> 
+            <img id="prinicpal" name="prinicpal" src= "../recursos/imagenes/logo.png" width="90">
+        </div>
+    </a>
+        <h1>Fallucapp</h1> 
+</header>
 
-<section id="secFormulario" name="secFormulario">
-      <tr>
-            <td><label for=""></label></td>
-            <img src="imagenes/Mas.png " width="50" height="50">
-            <img src="imagenes/lupa.png " width="50" height="50">
-            <td><input type="text" name="txnombre" id="txnombre"></td>
+<body>
+
+    <section class="classab" id="secFormulario" name="secFormulario" >
+        <a href="../vistas/registrarFalla.php"><img src="../recursos/imagenes/agregar.png " width="50" height="50"></a>
+
+        <input class="classcont" type="text" name="txnombre" id="txnombre">
+
+        <img src="imagenes/buscar.png " width="35" height="35">
+
+        
+
+        
+
       
 
     </section>
-</div>
-<div class="cuadro2">
-    <nav class="letra2">
-    <nav class="classnav">
-        
 
-
-</nav>
-</nav>
-</div>
-    <body>
+    
         
     </body>
 

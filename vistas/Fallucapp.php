@@ -4,47 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
     <title>Fallucapp</title>
-    <link rel="stylesheet" href="hojaAndy.css">
+    <link rel="stylesheet" href="../recursos/css/hojaAndy.css">
+    <link rel="shortcut icon" href="../recursos/imagenes/logo.png" type="image/x-icon">
 
 </head>
 
 <header >
-    <div class="cuadro">
-    <nav class="classnav">
-        <a href="index.html">
-    
-            <img id="prinicpal" name="prinicpal" src= "imagenes/casita.png"> </a>
-            <nav class="letra">
-                
-            <h2>Fallucapp</h2>
-        </nav>
+  
+        <a href="../vistas/Fallucapp.php">
+            <div class="logo"> 
+                <img id="prinicpal" name="prinicpal" src= "../recursos/imagenes/logo.png" width="90">
+            </div>
+        </a>
 
-<section id="secFormulario" name="secFormulario">
-      <tr>
-            <td><label for=""></label></td>
-            <img src="imagenes/lupa.png " width="50" height="50">
-            <td><input type="text" name="txnombre" id="txnombre"></td>
+            <h1>Fallucapp</h1> 
+        </header>
       
 
-    </section>
-</div>
-<div class="cuadro2">
-    <nav class="letra2">
-    <nav class="classnav">
-        
-<a href="Fallas.html">Fallas</a>
-<img src="imagenes/falla.png" width="100" height="100">
-<a href="Dispositivos.html">Dispositivos</a>
-<img src="imagenes/cableEthernet.png" width="120" height="120">
-<a href="Protocolos.html">Protocolos</a>
-<img src="imagenes/carpetaa.png" width="150" height="150">
 
-</nav>
-</nav>
-</div>
     <body>
+        
+         <section class="classmenu">
+
+
+
+                <div>
+                    <a href="../vistas/Fallas.php"> <img src="../recursos/imagenes/falla.png" width="120" height="120"> </a>
+                    <a href="../vistas/Fallas.php"><h2>Fallas</h2></a>
+                </div>
+                <div>
+                    <a href="../vistas/dispositivos.php"> <img src="../recursos/imagenes/cableEthernet.png" width="120" height="120"> </a>
+                    <a href="../vistas/dispositivos.php"> <h2>Dispositivos</h2></a>
+                </div>
+                <div>
+                    <a href="../vistas/protocolos.php">  <img src="../recursos/imagenes/carpetaa.png" width="120" height="120"> </a>
+                    <a href="../vistas/protocolos.php"><h2>Protocolos</h2></a>
+
+
+                </div>
+                
+
+         </section>
+
         
     </body>
 

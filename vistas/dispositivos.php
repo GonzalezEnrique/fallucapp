@@ -7,18 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispositivos</title>
 </head>
-<header>
-    <nav>
-        <h3 id="h3Dis" name="h3Dis">Fallucapp</h3>
-        <a href="" style="color: azure;">Regresar</a>
 
-    </nav>
-</header>
+
+
 
 
 <body>
-   <div id="bloqueDispositivos" name="bloqueDispositivos">
-    <h3 >Dispositivos</h3>
+    <header>
+        <a href="../vistas/Fallucapp.php">
+            <div class="claseLogo">
+                <img src="../recursos/imagenes/logo.png" alt="">
+            </div>
+
+
+        </a>
+        <nav>
+            <h1 id="h1Dis" name="h1Dis">Fallucapp</h1>
+         <!--  a href="" style="color: azure;">Regresar</a>--> 
+    
+        </nav>
+        
+    </header>   
+    <h2 >Dispositivos</h2>
+   
+    
         <div id="btnAgregarDispositivos" name="btnAgregarDispositivos">
             <button><img src="../recursos/imagenes/agregar.png" alt=""></button>
         </div>
@@ -28,57 +40,17 @@
         <div id="btnBuscarDispositivos" name="btnBuscarDispositivos">
             <button><img src="../recursos/imagenes/buscar.png" alt=""></button>
         </div>
-   </div> 
-   <section id="tablaDispositivos" name="ta
-   ">
-        <table id="tDispositivos" name="tDispositivos" border="">
-            <tr>
-                <td>
-                    <p>Nombre</p>
-                </td>
-                <td>
-                    <p>Tipo</p>
-                </td>
-                <td>
-                    <p>Descripción</p>
-                </td>
-                <td>
-                    <p>Ubicación</p>
-                </td>
-                <td>
-                    <p>Configuración</p>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+       
 
-        </table>
+ 
+   <section id="listaDispositivos" name="listaDispositivos">
+       <ul id="lNombre"><li>Nombre(Tipo-Ubicación)</li></ul>
+      <a href=""> <ul>Switch</ul></a>
+       <ul id="lDescripcion">Descripción</ul>
+       <div id="btnCajaBotones">
+            <button type="submit" class="btnLista">Editar</button>
+            <button type="submit" class="btnLista">Eliminar</button>
+       </div>
 
    </section>
 

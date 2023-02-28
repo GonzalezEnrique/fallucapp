@@ -29,26 +29,18 @@ class Inventario {
         
         $datos = $conn->ejecutarConsulta($sql);
         $total = count($datos);
-        $total_page = 2;
+        $total_page = 50;
         $pages = ceil($total / $total_page);
         
         $start_record = ($page - 1) * $total_page;
-        $sql2 = "SELECT * FROM inventario INNER JOIN tipos_dispositivos ON inventario.idTipoDisp = tipos_dispositivos.idTipoDisp LIMIT $start_record, $total_page";
+        $sql2 = "SELECT * FROM inventario INNER JOIN tipos_dispositivos 
+        ON inventario.idTipoDisp = tipos_dispositivos.idTipoDisp LIMIT $start_record, $total_page";
         $resultado = $conn->ejecutarConsulta($sql2);
         
-        // Visualizar datos (forma 1)
-        echo "<pre>";
-        var_dump($resultado);
-        echo "</pre>";
-        
-        // // Visualizar datos (forma 2)
-        // foreach ($datos as $dato) {
-            //     echo "id: " . $dato["id"] . "<br>";
-            //     echo "cantidad: " . $dato["cantidad"] . "<br>";
-            //     //echo "idTipoDisp: " . $dato["idTipoDisp"] . "<br>";
-            //     echo "TipoDisp: " . $dato["tipo"] . "<br><hr>";
-            // }
-            // return $datos;
+        // Visualizar
+        // echo "<pre>";
+        // var_dump($resultado);
+        // echo "</pre>";
         
         return [$resultado, $total, $page, $pages];
     }
