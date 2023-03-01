@@ -31,9 +31,11 @@
     <h2 >Dispositivos</h2>
    
     
-        <div id="btnAgregarDispositivos" name="btnAgregarDispositivos">
-            <button><img src="../recursos/imagenes/agregar.png" alt=""></button>
-        </div>
+        <a href="registrarDispositivo.php">
+            <div id="btnAgregarDispositivos" name="btnAgregarDispositivos">
+                <button><img src="../recursos/imagenes/agregar.png" alt=""></button>
+            </div>
+        </a>
         <div id="cajaBuscar" name="cajaBuscar">
             <input type="text">
         </div>
