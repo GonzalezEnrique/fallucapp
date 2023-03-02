@@ -6,6 +6,65 @@ body{
     background-color: #ffffff;
 }
 
+.claseMenu
+{
+    font-family: 'Climate Crisis', cursive;
+    font-family: 'Nunito', sans-serif;
+    background-color: #abe3f0;
+    -webkit-text-fill-color: #000000;
+    -webkit-text-stroke: 0.08px #000000;
+}
+
+.claseLista
+{
+    right: 0;
+    display: flex;
+    margin-right: 150px;
+    margin-top: -150px;
+    position: absolute;
+}
+
+li
+{
+    list-style: none;
+    cursor: pointer;
+    padding: 20px;
+    transition: all 0.3s ease 0s;
+}
+
+li:hover
+{
+    background-color: #fceeff;;
+}
+
+.claseOpciones
+{
+    position: absolute;
+    display: none;
+    transform: translateY(20px);
+}
+
+.claseOpciones >li
+{
+    border-bottom: solid 1px #ffffff;
+    text-align: center;
+    background-color: #f5d1cb;
+    padding: 20px;
+    width: 190px;
+    transform: translateX(-20px);
+    padding: 20px;
+}
+
+.claseOpciones > li:hover
+{
+    background-color: #9ee6f8;
+}
+
+.claseMenu:hover > .claseOpciones
+{
+    display: block;
+}
+
 #fondoError
 {
     background-color: #E0EEF1;
@@ -74,10 +133,10 @@ header h1
     margin: auto;
     margin-top: -150px;
     font-size: 25px; 
-    text-align: center;
+    text-align: left;
     background-color: #fceeff;
     width: 500px;
-    padding: 30px;
+    padding: 35px;
     border-bottom: #2d4057 2px solid;
     display: block;
     overflow: auto;
@@ -107,7 +166,7 @@ header h1
 
 #botonEliminar{
     background-color: #fceeff;
-    margin-left: 220px;
+    margin-left: 200px;
     margin-top: -20px;
     border: 0cm;
     padding: 0%;
@@ -144,7 +203,7 @@ h4
     {
         text-align: center;
         margin-left: 140px;
-        margin-top: 50px;
+        margin-top: 20px;
     }
 
     .claseTituloE
@@ -164,13 +223,18 @@ h4
         display: block;
         overflow: auto;
         padding-left: 1px;
-        margin-top: -380px;
+        margin-top: -500px;
     }
 
     #botonSubir
     {
         margin-top: 380px;
-        margin-left: 250px;
+        margin-left: 400px;
+    }
+
+    #botonSubir h4
+    {
+        margin-left: 10px;
     }
 
     #imagenX img
@@ -180,5 +244,14 @@ h4
         display: block;
         margin-top: 110px;
         margin-right: -80px;
+    }
+
+    .claseLista
+    {
+        right: 0;
+        display: flex;
+        margin-right: 200px;
+        margin-top: -150px;
+        position: absolute;
     }
 }
