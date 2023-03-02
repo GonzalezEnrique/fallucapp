@@ -33,6 +33,17 @@
                 <input id="file-input" type="file" style="display: none;">
         </div>
 
+        <ul class="claseLista"> 
+            <li class="claseMenu"> DISPOSITIVOS
+                <ul class="claseOpciones"> 
+                    <li class="claseDisp">Switch</li> 
+                    <li class="claseDisp">Router</li> 
+                    <li class="claseDisp">Hub</li>
+                    <li class="claseDisp">Repetidor</li>
+                </ul>
+            </li>
+        </ul>
+
         <div class="estiloCaja">
             <div id="lista" name="lista">
                 <ol>
