@@ -2,7 +2,7 @@
 class ConexionBD {
     private $host = "localhost"; 
     private $usuario = "root"; 
-    private $contrasena = "contraseñadelroot"; 
+    private $contrasena = "16ecb0016t"; 
     private $nombre_bd = "fallucapp";
     private $conexion;
 

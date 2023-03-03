@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fallucapp</title>
-    <link rel="stylesheet" href="../recursos/css/hojaAndy.css">
+    <link rel="stylesheet" href="../recursos/css/hojaEstiloAndy.css">
     <link rel="shortcut icon" href="../recursos/imagenes/logo.png" type="image/x-icon">
 
 </head>

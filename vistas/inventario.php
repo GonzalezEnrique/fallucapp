@@ -49,7 +49,7 @@ if ($pagina_actual > $total_paginas) {
     <section id="listaInventario">
         <?php foreach ($datos as $dato): ?>
             <ul>
-                <li><a href="dispositivos.php?id=<?= $dato['id']; ?>"><?= $dato['tipo']; ?></a></li>
+                <li><a href="dispositivos.php?id=<?= $dato['idTipoDisp']; ?>"><?= $dato['tipo']; ?></a></li>
             </ul>
             <p>Cantidad: <?= $dato['cantidad']; ?></p>
             <br>
