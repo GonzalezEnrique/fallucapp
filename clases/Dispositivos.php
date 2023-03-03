@@ -42,7 +42,7 @@ class Dispositivos{
     {
         return $this->tipo;
     }
-    public function get_all_dispositivos($page = 1) {
+    public function get_all_dispositivos($page = 1, $tipoDispositivo) {
         $conn = new ConexionBD();
         $sql = 'SELECT * FROM dispositivos';
         $conn->conectar();
@@ -51,9 +51,9 @@ class Dispositivos{
         $total = count($datos);
         $total_page = 2;
         $pages = ceil($total / $total_page);
-        
+         
         $start_record = ($page - 1) * $total_page;
-        $sql2 = "SELECT * FROM dispositivos INNER JOIN tipos_dispositivos ON dispositivotario.idTipoDisp = tipos_dispositivos.idTipoDisp LIMIT $start_record, $total_page";
+        $sql2 = "SELECT * FROM dispositivos WHERE idTipoDisp = $tipoDispositivo";
         $resultado = $conn->ejecutarConsulta($sql2);
         return [$resultado, $total, $page, $pages];
         

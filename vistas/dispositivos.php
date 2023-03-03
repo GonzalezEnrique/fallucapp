@@ -1,3 +1,26 @@
+<?php
+
+include '../clases/Dispositivos.php';
+
+
+$pagina_actual = 1;
+if (isset($_GET['page'])) {
+    $pagina_actual = $_GET['page'];
+    
+}
+
+$tipoDisp = $_GET['id'];
+$dispositivos = new Dispositivos();
+$consulta = $dispositivos->get_all_dispositivos($pagina_actual, $tipoDisp);
+$datos = $consulta[0];
+$pagina = $consulta[2];
+$total_paginas = $consulta[3];
+
+if ($pagina_actual > $total_paginas) {
+    header('Location: dispositivos.php?page=1');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,17 +67,22 @@
         </div>
        
 
- 
+ <?php 
+    foreach ($datos as $dato):
+ ?>
    <section id="listaDispositivos" name="listaDispositivos">
-       <ul id="lNombre"><li>Nombre(Tipo-Ubicación)</li></ul>
+       <ul id="lNombre"><li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li></ul>
       <a href="../vistas/protocolos.php"> <ul>Switch</ul></a>
-       <ul id="lDescripcion">Descripción Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa ex ut odio voluptates deleniti. Aliquid inventore aut cum vero minima facere recusandae suscipit eveniet iste, fugiat illum explicabo veritatis sapiente?</ul>
+       <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
        <div id="btnCajaBotones">
             <button type="submit" class="btnLista">Editar</button>
             <button type="submit" class="btn2Lista">Eliminar</button>
        </div>
 
    </section>
+
+   <?php endforeach; ?>
+   
 
 </div>
 </body>
