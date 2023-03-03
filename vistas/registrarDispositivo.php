@@ -10,11 +10,12 @@
     <title>Registrar dispositivo</title>
 </head>
 <body>
+    <div class="contenedor">
     <header>
         <a href="../vistas/Fallucapp.php">
-            <div class="logo">
-                <img src="../recursos/imagenes/logo.png" width="90">
-            </div>
+            
+                <img class="lo" src="../recursos/imagenes/logo.png">
+            
         </a>
         <h1>Fallucapp</h2>
     </header>
@@ -42,15 +43,13 @@
                 <div class="fg">   
                     <label class="form_label" for="configuracion">Configuración:</label>
                     <input class="controls" type="text" name="configuracion" id="configuracion" placeholder="Configuración">
-                </div>    
-                    <input class="btnA" type="submit" value="Agregar">
-                    <input class="btnC" type="submit" value="Cancelar">
-                    
+                </div>
             </div>
+            <input class="btnA" type="submit" value="Agregar">
+            <input class="btnC" type="submit" value="Cancelar">
         </form>
         
     </section>
-</body>
-</html>
+</div>
 </body>
 </html>

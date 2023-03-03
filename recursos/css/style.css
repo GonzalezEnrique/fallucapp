@@ -8,9 +8,17 @@ body{
     min-height: 100vh;
 
 }
+
+.contenedor
+{
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
 header{
     background-color: #2d4057;
-    width: 100%;
     height: 80px;
     background-size: cover;
     background-attachment: fixed;
@@ -18,8 +26,9 @@ header{
     display: flex;
 }
 
-div.logo
+img.lo
 {
+    width: 90px;
     height: 90px;
     margin-left: 5%;
     margin-top: -5%;
@@ -58,7 +67,7 @@ h2
     background-color: #fff;
     margin: auto;
     width: 90%;
-    max-width: 400px;
+    max-width: 800px;
     padding: 4.5em 3em;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
@@ -100,21 +109,109 @@ h2
 {
     background: #4097aa;
     color: #fff;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Arial Rounded MT Bold';
     font-weight: 300;
     font-size: 1rem;
-    padding: .8em 0;
+    padding: .8em 4em .8em 4em;
     border: none;
     border-radius: .5em;
+    margin-top: 10%;
+    margin-right: 40%;
+    
 }
 .btnC
 {
     background: #f49483;
     color: #fff;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Arial Rounded MT Bold';
     font-weight: 300;
     font-size: 1rem;
-    padding: .8em 0;
+    padding: .8em 4em .8em 4em;
     border: none;
     border-radius: .5em;
+    
+}
+
+@media screen and (max-width: 400px)
+{
+    h1
+        {
+            font-family: 'Arial Rounded MT Bold';
+            font-size: 30px;
+            margin-left: 2%;
+            margin-top: 6%;
+            -webkit-text-fill-color: #4097aa;
+            -webkit-text-stroke: 0.01px #4097aa;
+            text-align: right;
+            text-shadow: -1px 0 #586b83, 0 1px #586b83, 1px 0 #586b83, 0 -1px #586b83, -2px 2px 0 #586b83, 2px 2px 0 #586b83, 1px 1px #586b83, 2px 2px #586b83, 3px 3px #586b83, 4px 4px #586b83, 5px 5px #586b83; 
+        }
+    
+    img.lo
+        {
+            width: 45px;
+            height: 45px;
+            margin-left: 5%;
+            margin-top: 25%;
+        }
+    .btnA
+        {
+            background: #4097aa;
+            color: #fff;
+            font-family: 'Arial Rounded MT Bold';
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .6em 0;
+            border: none;
+            border-radius: .5em;
+            width: 100%;
+            margin-bottom: 2%;
+            margin-top: 2%;
+        }
+    .btnC
+        {
+            background: #f49483;
+            color: #fff;
+            font-family: 'Arial Rounded MT Bold';
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .6em 0;
+            border: none;
+            border-radius: .5em;
+            width: 100%;
+            margin-bottom: 2%;
+            margin-top: 2%;
+        }
+    
+}
+
+@media screen and (max-width: 836px)
+{
+    .btnA
+        {
+            background: #4097aa;
+            color: #fff;
+            font-family: 'Arial Rounded MT Bold';
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .6em 0;
+            border: none;
+            border-radius: .5em;
+            width: 100%;
+            margin-bottom: 2%;
+            margin-top: 2%;
+        }
+    .btnC
+        {
+            background: #f49483;
+            color: #fff;
+            font-family: 'Arial Rounded MT Bold';
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .6em 0;
+            border: none;
+            border-radius: .5em;
+            width: 100%;
+            margin-bottom: 2%;
+            margin-top: 2%;
+        }
 }

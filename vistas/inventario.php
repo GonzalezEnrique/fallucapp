@@ -38,7 +38,7 @@ if ($pagina_actual > $total_paginas) {
 
         </a>
         <nav>
-            <h1 id="h3Dis" name="h3Dis">Fallucapp</h1>
+            <h1 id="h1Dis" name="h1Dis">Fallucapp</h1>
          <!--  a href="" style="color: azure;">Regresar</a>--> 
     
         </nav>

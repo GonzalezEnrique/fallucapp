@@ -4,7 +4,7 @@
 
 body{
 background-color: white;
-/* overflow: hidden; */
+
 }
 header{
     background-color: #2d4057;
@@ -65,23 +65,27 @@ margin-left: 50%;
 
 #bloqueDispositivos{
 margin-top: 0%;
+
 }
 
 #btnAgregarDispositivos{
-padding-left: 32%;
-margin-bottom: -2%;
+float: left;
+margin-left: 32%;
+box-sizing: border-box;
 
 }
 
 #cajaBuscar{
-    padding-left: 52%;
-    margin-bottom: -5%;
+    float: left;
+    margin-left: 18%;
+    margin-top: 1.2%;
+    box-sizing: border-box;
 }
 
 #btnBuscarDispositivos{
-    padding-left: 65%;
-  
-    margin-top:3%;
+   float: left;
+   box-sizing: border-box;
+   margin-left: 1%;
 
     
 }
@@ -90,37 +94,122 @@ margin-bottom: -2%;
 #listaDispositivos,#listaInventario{
     color: rgb(12, 20, 41);
     margin: auto;
-    margin-top: 2%;
+    margin-top: 8%;
     font-size: 25px; 
-    text-align: center;
+    
     background-color: #fceeff;
     width: 500px;
     padding: 30px;
     border-bottom: #2d4057 2px solid;
+    display: block;
+    overflow: auto;
     font-family: 'Climate Crisis', cursive;
     font-family: 'Nunito', sans-serif;
+   
 }
 
 .btnLista{
 
-    padding: 1%;
-    margin-left: 5%;
-  
+    background: #f49483;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    border-radius: .5em;
+    margin-left:8% ;
 }
+.btn2Lista{
 
+    background: #f49483;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+    font-size: 1rem;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    border-radius: .5em;
+    margin-left:20% ;
+}
 
 
 #listaInventario{
     color: rgb(12, 20, 41);
     margin: auto;
     margin-top: 8%;
-    margin-bottom: 10%;
     font-size: 25px; 
-    text-align: center;
+   
     background-color: #fceeff;
     width: 500px;
     padding: 30px;
     border-bottom: #2d4057 2px solid;
+    display: block;
+    overflow: auto;
     font-family: 'Climate Crisis', cursive;
     font-family: 'Nunito', sans-serif;
+}
+
+.contenedor{
+    width: 100%;
+    max-width: 10000px;
+}
+
+@media screen and (max-width: 550px) {
+    #btnBuscarDispositivos{
+        width: 100%;
+        float: right;
+        margin-top:1%;
+    }
+    #btnAgregarDispositivos{
+        width: 100%;
+        float: right;
+    }
+    #cajaBuscar{
+        width: 100%;
+        float: right;
+        margin-top: 2%;
+    }
+    #listaDispositivos{
+        width: auto;
+        height: auto;
+    }
+    .li{
+        width: auto;
+        height: auto;
+    }
+    .ul{
+        width: auto;
+        height: auto;
+    }
+    .header{
+        width: auto;
+        height: auto; 
+    }
+    #h1Dis{
+       
+       
+        font-size: 48px;
+        margin-left: 2%;
+    margin-top: 5%;
+    }
+    .claseLogo
+    {
+        width: auto;
+        height: auto; 
+    }
+  .btnLista{
+    padding: 15px;
+  }
+  .btn2Lista{
+    padding: 15px;
+  }
+  #listaInventario{
+    width: auto;
+    height: auto;
+}
 }
