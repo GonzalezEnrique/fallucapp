@@ -61,9 +61,10 @@ class Dispositivos{
       
     }
 
-    public function agregarDispositivo($tabla, array $datos){
+    public function agregarDispositivo($datos){
         $conn = new ConexionBD();
-        $conn->insertarDatos($tabla,$datos);
+        $conn->conectar();
+        $conn->insertarDatos("dispositivos",$datos);
         $conn->desconectar();
     }
 

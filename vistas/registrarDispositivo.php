@@ -1,55 +1,140 @@
+<?php
+include '../clases/Dispositivos.php';
+$dispositivos = new Dispositivos();
+$opciones = $dispositivos->listarTipos();
+$nombre = '';
+$ubicacion = '';
+$descripcion = '';
+$tipo = '';
+$errores = [];
+
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+    $nombre = $_POST['nombre'];
+    $ubicacion = $_POST['ubicacion'];
+    $descripcion = $_POST['descripcion'];
+    $tipo = $_POST['tipo'];
+    $configuracion = $_FILES['configuracion'];
+
+    $pos = strrpos($configuracion['full_path'], ".");
+    $extension = substr($configuracion['full_path'], $pos);
+
+
+
+    if (!$nombre) {
+        $errores[] = "Debes agregar un nombre de dispositivo";
+    }
+    if (!$ubicacion) {
+        $errores[] = "Debes agregar un nombre de dispositivo";
+    }
+    if (!$descripcion) {
+        $errores[] = "la descripcion es obligatoria";
+    }
+    if (!$tipo) {
+        $errores[] = "Selecciona el tipo de dispositivo";
+    }
+
+    //if (empty($errores)) {
+    $carpetaConfig = "../recursos/archivosConfig/";
+
+    if (!is_dir($carpetaConfig)) {
+        mkdir($carpetaConfig);
+    }
+
+    if (!$configuracion['name']){
+        $datos = array(
+            'nombre' => $nombre,
+            'ubicacion' => $ubicacion,
+            "configuracion" => "",
+            'descripcion' => $descripcion,
+            "idTipoDisp" => intval($tipo)
+        );
+        
+        $dispositivos->agregarDispositivo($datos);
+    }
+    else {
+        $nombreArchivo = md5(uniqid(rand(), true)) . $extension;
+        move_uploaded_file($configuracion['tmp_name'], $carpetaConfig . $nombreArchivo);
+        $datos = array(
+            "nombre" => $nombre,
+            "ubicacion" => $ubicacion,
+            "configuracion" => $nombreArchivo,
+            "descripcion" => $descripcion,
+            "idTipoDisp" => intval($tipo) 
+        );
+        $dispositivos->agregarDispositivo($datos);
+    }
+   
+
+    // }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../recursos/css/style.css">
     <link rel="shortcut icon" href="../recursos/imagenes/logo.png" type="image/x-icon">
-    
+
     <title>Registrar dispositivo</title>
 </head>
+
 <body>
     <div class="contenedor">
-    <header>
-        <a href="../vistas/Fallucapp.php">
-            
-                <img class="lo" src="../recursos/imagenes/logo.png">
-            
-        </a>
-        <h1>Fallucapp</h2>
-    </header>
+        <header>
+            <a href="../vistas/Fallucapp.php">
 
-    <section class="form-register">
-        <form class="form">
-            <h2>Registrar dispositivo</h2>
-            <div class="form_container">
-                <div class="fg">
-                    <label class="form_label" for="nombre">Nombre:</label>
-                    <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre del dispositivo">
+                <img class="lo" src="../recursos/imagenes/logo.png">
+
+            </a>
+            <h1>Fallucapp</h2>
+        </header>
+
+        <section class="form-register">
+            <form class="form" method="POSt" enctype="multipart/form-data">
+                <h2>Registrar dispositivo</h2>
+                <div class="form_container">
+                    <div class="fg">
+                        <label class="form_label" for="nombre">Nombre:</label>
+                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre del dispositivo">
+                    </div>
+                    <div class="fg">
+                        <label class="form_label" for="tipo">Tipo:</label>
+                        <select class="controls" name="tipo" id="tipo">
+                            <option value="">-- Selecionar --</option>
+                            <?php
+                            foreach ($opciones as $opcion) :
+                            ?>
+                                <option value="<?php echo $opcion['idTipoDisp'] ?>"><?php echo $opcion['tipo']; ?> </option>
+                            <?php endforeach; ?>
+
+                        </select>
+                    </div>
+                    <div class="fg">
+                        <label class="form_label" for="ubicacion">Ubicación:</label>
+                        <input class="controls" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación del dispositivo">
+                    </div>
+                    <div class="fg">
+                        <label class="form_label" for="descripcion">Descripción:</label>
+                        <textarea class="controls" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
+                    </div>
+                    <div class="fg">
+                        <label class="form_label" for="configuracion">Configuración:</label>
+                        <input class="controls" type="file" name="configuracion" id="configuracion" placeholder="Configuración">
+                    </div>
                 </div>
-                <div class="fg">  
-                    <label class="form_label" for="tipo">Tipo:</label>
-                    <input class="controls" type="text" name="tipo" id="tipo" placeholder="Tipo de dispositivo">
-                </div> 
-                <div class="fg">   
-                    <label class="form_label" for="ubicacion">Ubicación:</label>
-                    <input class="controls" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación del dispositivo">
-                </div>
-                <div class="fg">   
-                    <label class="form_label" for="descripcion">Descripción:</label>
-                    <textarea class="controls" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
-                </div>
-                <div class="fg">   
-                    <label class="form_label" for="configuracion">Configuración:</label>
-                    <input class="controls" type="text" name="configuracion" id="configuracion" placeholder="Configuración">
-                </div>
-            </div>
-            <input class="btnA" type="submit" value="Agregar">
-            <input class="btnC" type="submit" value="Cancelar">
-        </form>
-        
-    </section>
-</div>
+                <input class="btnA" type="submit" value="Agregar">
+                <input class="btnC" type="submit" value="Cancelar">
+            </form>
+
+        </section>
+    </div>
 </body>
+
 </html>

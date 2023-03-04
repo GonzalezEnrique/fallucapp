@@ -1,0 +1,273 @@
+escribir macro param
+    mov ah,09h
+    mov dx, offset param
+    int 21h
+endm
+.model small
+.stack
+.data
+    msg db 10,13, '__________________-OPRIME EL NUMERO SEGUN LA OPCION QUE ELIGAS-_________________',10,13,'$'
+    msg1 db 10,13, '1. Suma de dos numeros', '$'
+    msg2 db 10,13, '2. Resta de dos numeros', '$'
+    msg3 db 10,13, '3. Multiplicacion de dos numeros', '$'
+    msgd db 10,13, '4. Division de dos numeros', '$'
+    msg0 db 10,13,'5. Salir',10,13,'$'
+    msg4 db 10,13, 'Introduce un numero: ', '$'
+    msg5 db 10,13, 'El Resultado es: ', '$'
+    msg6 db 10,13, 'Saliendo...','$'
+    msg7 db 10,13, 'Opcion no valida','$'
+    num1 db 0
+    num2 db 0
+    num3 db 0
+    num4 db 0
+    num5 db 0
+    num6 db 0
+    N1  db ?
+    N2 db ?
+    N3 db ?
+.code
+    mov ax,@data
+    mov ds,ax
+
+    Menu:
+
+        escribir msg 
+        escribir msg1
+        escribir msg2
+        escribir msg3
+        escribir msgd
+        escribir msg0
+
+        mov ah,01h ;recibimos caracter con el servicio.
+        int 21h ;llamamos interrupcion
+
+        cmp al,31h ;ver si el digito recibido es 1
+        jz Suma ;si es 1 se va a el metodo comparar
+        cmp al,32h ;ver si el digito recibido es 2
+        jz Resta
+        cmp al,33h
+        jz Mult
+        cmp al, 34h
+        jz division
+        Jnz aux 
+    
+    Suma:
+        xor ax, ax ; limp1amos ax
+        ;mandar mensaje a pantalla
+        escribir msg4
+        
+        ;leer digito
+        mov ah,01h
+        int 21H
+        sub AL,30h
+        mov BL,al
+
+        escribir msg4
+
+        ;leer digito
+        mov ah,01h
+        int 21H
+        sub AL,30h
+        add AL,BL
+        
+        ;OPERACION
+        AAA
+        OR AX,3030h
+        MOV BX,ax
+        SUB BH,01h
+
+        ;manda mensaje de resultado es:
+       escribir msg5
+
+        ;manda el resultado a pantalla
+        MOV ah,02h
+        mov dl,bh
+        INT 21H
+
+        
+        mov ah,02
+        mov dl,bl
+        int 21H
+
+        mov dx,10;salto de linea
+        mov ah,02
+        int 21h
+
+        call Menu 
+
+    Resta:
+
+        escribir msg4
+
+        xor ax, ax ; limp1amos ax
+
+        MOV AH, 01            ;SERVICIO ENTRADA NUM 1 PARA DETECTAR LA TECLA PULSADA
+        INT 21H               ;INTERRUPCION 
+        SUB AL, 30H           ;RESTAR 30H
+        MOV N1 , AL           ;MOVER ENTRADA DE VARIABLE N1 
+
+        escribir msg4
+
+        MOV AH, 01            ;SERVICIO ENTRADA NUM 2 PARA DETECTAR LA TECLA PULSADA
+        INT 21H               ;INTERRUPCION 
+        SUB AL, 30H           ;RESTAR 30H
+        MOV N2 , AL           ;MOVER ENTRADA DE VARIABLE N2
+
+        ;PARA CREAR SUMA
+        MOV AL,N1              ;MOVER VARIABLE N1 A AL
+        SUB AL, N2             ;SUMAR N1 Y N2
+        ADD AL,30H            ;SUMAR EL RESULTADO CON 30H
+        MOV N3, AL             ;MOVER RESULTADOS A N3
+
+        escribir msg5  
+        ;INTERRUPCION
+        MOV AH, 2               ;SERVICIO QUE EXHIBE RESULTADO
+        MOV DL, N3              ;MUEVE RESULTADO A N3
+        INT 21H   
+
+        
+
+        mov dx,10;salto de linea
+        mov ah,02
+        int 21h 
+
+        call Menu 
+
+    Mult:
+        xor ax, ax ; limp1amos ax    
+        ;imprimir msg de ingresar numero
+        escribir msg4
+
+        ;capturar numero 1
+        mov ah,01h ;servicio de leer caracter
+        int 21H ;interrupcion
+        sub al, 30H ;ajuste del hexadecimal para pasarlo a decimal
+        mov num1, al
+
+        ;imprimir msg de ingresar numero
+        escribir msg4
+
+        ;capturar numero 2
+        mov ah,01h ;servicio de leer caracter
+        int 21H ;interrupcion
+        sub al, 30H ;ajuste del hexadecimal para pasarlo a decimal
+        mov num2, al
+
+        ;operacion de multiplicacion
+        mov al, num1
+        mov bl, num2
+        mul BL
+        mov num3, al
+
+        ;mostrar cadena "el resltado es:"
+        escribir msg5
+
+        ;mostrar numeros 
+        mov al, num3
+        AAM ;desempaquetado
+        mov bx, ax
+        mov ah, 02h
+        mov dl, BH ;aqui movemos el primero numero del resultado a dl por si el resultado tiene dos digitos
+        add dl,30H ;sumamos 30 para ajustar el numero a hexadecimal
+        int 21H
+
+        mov ah,02h
+        mov dl, bl
+        add dl,30H
+        int 21H
+
+        mov dx, 10;Salto Linea
+        mov ah,02
+        int 21h
+
+        call Menu
+
+    division:
+        MOV AX,@DATA
+        MOV DS, AX
+        
+        MOV ah,00
+        MOV AL, 03H
+        INT 10h
+
+        MOV AH, 09h
+        LEA DX,msg4
+        INT 21h
+
+        MOV AH, 01h 
+        int 21H
+        sub al,30H
+
+        MOV num1, AL
+        INT 21h
+        
+        INT 21h 
+        SUB AL, 30H
+        MOV num2, AL
+
+        MOV AH, 09h
+        LEA DX, msg4
+        INT 21h
+
+        MOV AH, 01h
+        INT 21h
+        SUB AL,30h
+        MOV num3, AL
+        int 21H
+        int 21H
+        sub al,30H
+        mov num4, al
+        xor ax, ax
+        mov ah, num1
+        mov al, num2
+        ;
+        AAD
+        mov num5,AL
+        XOR AX, AX
+        mov ah, num3
+        mov al, num4
+        ; SE REALIZA LA DIVISION ENTRE NUM5 Y NUM6 
+        AAD
+        mov num6, AL   
+        XOR AX, AX
+        MOV AL, num5
+        DIV num6 
+        ;Se manda a llamar el resultado
+        MOV AH,09h
+        LEA DX, msg5
+        INT 21h
+
+        AAM
+        MOV BX, AX
+        MOV AH,02h
+        MOV DL, BH
+        ADD DL,30h
+        INT 21h
+        MOV AH, 02h
+        MOV DL,BL
+        ADD DL,30h
+        INT 21h
+
+        call Menu
+
+
+    aux:
+        cmp al,35h
+        jz Salir
+        jnz Error
+
+    Salir:
+        escribir msg6
+        mov dx,10;damos salto de linea para mejor apariencia
+        mov ah,02h
+        int 21H
+
+        int 27h
+        
+        Error:
+            mov ah,09h
+            lea dx, msg7
+            int 21h
+            call Menu
+
+end        
