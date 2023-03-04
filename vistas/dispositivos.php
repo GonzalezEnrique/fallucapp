@@ -54,11 +54,12 @@ if ($pagina_actual > $total_paginas) {
         </header>
         <h2>Dispositivos</h2>
 
+        <div id="btnAgregarDispositivos" name="btnAgregarDispositivos">
+            <a href="../vistas/registrarDispositivo.php"><button><img src="../recursos/imagenes/agregar.png" alt=""></button></a>
+        </div>
 
         <form method="POST">
-            <div id="btnAgregarDispositivos" name="btnAgregarDispositivos">
-                <a href="../vistas/registrarDispositivo.php"><button><img src="../recursos/imagenes/agregar.png" alt=""></button></a>
-            </div>
+
             <div for="cajaBuscar" id="cajaBuscar" name="cajaBuscar">
                 <input type="text" name="buscar" placeholder="Buscar">
             </div>
@@ -72,15 +73,47 @@ if ($pagina_actual > $total_paginas) {
         <?php
 
         if ($_SERVER['REQUEST_METHOD'] != "POST" || !$_POST['buscar']) {
-            
+
             foreach ($datos as $dato) :
         ?>
                 <section id="listaDispositivos" name="listaDispositivos">
                     <ul id="lNombre">
                         <li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li>
                     </ul>
-                    <a href="../vistas/protocolos.php">
-                        <ul>Switch</ul>
+                    <?php
+                    $ruta = "../recursos/archivosConfig/" . $dato['configuracion'];
+                    if (is_file($ruta)) { ?>
+                        <a href="../recursos/archivosConfig/<?php echo $dato['configuracion'] ?>">
+                            <ul>Configuracion</ul>
+                        </a>
+                    <?php } else { ?>
+
+                        <ul>Configuracion</ul>
+
+                    <?php } ?>
+                    <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
+                    <div id="btnCajaBotones">
+                        <button type="submit" class="btnLista">Editar</button>
+                        <button type="submit" class="btn2Lista">Eliminar</button>
+                    </div>
+
+                </section>
+
+            <?php endforeach;
+        } else {
+            $valor = $_POST['buscar'];
+            $busqueda = $dispositivos->buscar($valor);
+            //var_dump($busqueda);
+
+            foreach ($busqueda as $dato) :
+            ?>
+
+                <section id="listaDispositivos" name="listaDispositivos">
+                    <ul id="lNombre">
+                        <li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li>
+                    </ul>
+                    <a href="../recursos/<?php echo $dato['configuracion'] ?>">
+                        <ul>Configuracion</ul>
                     </a>
                     <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
                     <div id="btnCajaBotones">
@@ -91,30 +124,7 @@ if ($pagina_actual > $total_paginas) {
                 </section>
 
         <?php endforeach;
-        } else {
-            $valor = $_POST['buscar'];
-            $busqueda = $dispositivos->buscar($valor);
-            //var_dump($busqueda);
-
-            foreach ($busqueda as $dato) :
-        ?>
-
-                <section id="listaDispositivos" name="listaDispositivos">
-                    <ul id="lNombre">
-                        <li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li>
-                    </ul>
-                    <a href="../vistas/protocolos.php">
-                        <ul>Switch</ul>
-                    </a>
-                    <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
-                    <div id="btnCajaBotones">
-                        <button type="submit" class="btnLista">Editar</button>
-                        <button type="submit" class="btn2Lista">Eliminar</button>
-                    </div>
-
-                </section>
-        
-        <?php endforeach; } ?> 
+        } ?>
 
 
 
