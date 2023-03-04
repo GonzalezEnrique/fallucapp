@@ -112,9 +112,17 @@ if ($pagina_actual > $total_paginas) {
                     <ul id="lNombre">
                         <li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li>
                     </ul>
-                    <a href="../recursos/<?php echo $dato['configuracion'] ?>">
+                    <?php
+                    $ruta = "../recursos/archivosConfig/" . $dato['configuracion'];
+                    if (is_file($ruta)) { ?>
+                        <a href="../recursos/archivosConfig/<?php echo $dato['configuracion'] ?>">
+                            <ul>Configuracion</ul>
+                        </a>
+                    <?php } else { ?>
+
                         <ul>Configuracion</ul>
-                    </a>
+
+                    <?php } ?>
                     <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
                     <div id="btnCajaBotones">
                         <button type="submit" class="btnLista">Editar</button>
