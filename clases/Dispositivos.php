@@ -61,12 +61,9 @@ class Dispositivos{
       
     }
 
-    public function agregarDispositivo(array $params){
+    public function agregarDispositivo($tabla, array $datos){
         $conn = new ConexionBD();
-        $sql = "INSERT INTO dispositivos (nombre, ubicacion, descripcion, configuracion, idTipoDisp) VALUES 
-                (?, ?, ?, ? ,?)";
-        $conn->conectar();
-        $resultado = $conn->ejecutarConsulta($sql, $params);
+        $conn->insertarDatos($tabla,$datos);
         $conn->desconectar();
     }
 
