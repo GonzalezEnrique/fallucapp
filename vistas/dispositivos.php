@@ -6,7 +6,6 @@ include '../clases/Dispositivos.php';
 $pagina_actual = 1;
 if (isset($_GET['page'])) {
     $pagina_actual = $_GET['page'];
-    
 }
 
 $tipoDisp = $_GET['id'];
@@ -23,6 +22,7 @@ if ($pagina_actual > $total_paginas) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <link rel="stylesheet" href="../recursos/css/styleEli.css">
     <meta charset="UTF-8">
@@ -37,53 +37,89 @@ if ($pagina_actual > $total_paginas) {
 
 <body>
     <div class="contenedor">
-    <header>
-        <a href="../vistas/Fallucapp.php">
-            <div class="claseLogo">
-                <img src="../recursos/imagenes/logo.png" alt="">
+        <header>
+            <a href="../vistas/Fallucapp.php">
+                <div class="claseLogo">
+                    <img src="../recursos/imagenes/logo.png" alt="">
+                </div>
+
+
+            </a>
+            <nav>
+                <h1 id="h1Dis" name="h1Dis">Fallucapp</h1>
+                <!--  a href="" style="color: azure;">Regresar</a>-->
+
+            </nav>
+
+        </header>
+        <h2>Dispositivos</h2>
+
+
+        <form method="POST">
+            <div id="btnAgregarDispositivos" name="btnAgregarDispositivos">
+                <a href="../vistas/registrarDispositivo.php"><button><img src="../recursos/imagenes/agregar.png" alt=""></button></a>
             </div>
+            <div for="cajaBuscar" id="cajaBuscar" name="cajaBuscar">
+                <input type="text" name="buscar" placeholder="Buscar">
+            </div>
+            <div id="btnBuscarDispositivos" name="btnBuscarDispositivos">
+                <button type="submit"><img src="../recursos/imagenes/buscar.png" alt=""></button>
+            </div>
+        </form>
 
 
-        </a>
-        <nav>
-            <h1 id="h1Dis" name="h1Dis">Fallucapp</h1>
-         <!--  a href="" style="color: azure;">Regresar</a>--> 
-    
-        </nav>
+
+        <?php
+
+        if ($_SERVER['REQUEST_METHOD'] != "POST" || !$_POST['buscar']) {
+            
+            foreach ($datos as $dato) :
+        ?>
+                <section id="listaDispositivos" name="listaDispositivos">
+                    <ul id="lNombre">
+                        <li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li>
+                    </ul>
+                    <a href="../vistas/protocolos.php">
+                        <ul>Switch</ul>
+                    </a>
+                    <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
+                    <div id="btnCajaBotones">
+                        <button type="submit" class="btnLista">Editar</button>
+                        <button type="submit" class="btn2Lista">Eliminar</button>
+                    </div>
+
+                </section>
+
+        <?php endforeach;
+        } else {
+            $valor = $_POST['buscar'];
+            $busqueda = $dispositivos->buscar($valor);
+            //var_dump($busqueda);
+
+            foreach ($busqueda as $dato) :
+        ?>
+
+                <section id="listaDispositivos" name="listaDispositivos">
+                    <ul id="lNombre">
+                        <li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li>
+                    </ul>
+                    <a href="../vistas/protocolos.php">
+                        <ul>Switch</ul>
+                    </a>
+                    <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
+                    <div id="btnCajaBotones">
+                        <button type="submit" class="btnLista">Editar</button>
+                        <button type="submit" class="btn2Lista">Eliminar</button>
+                    </div>
+
+                </section>
         
-    </header>   
-    <h2 >Dispositivos</h2>
-   
-    
-    
-        <div id="btnAgregarDispositivos" name="btnAgregarDispositivos">
-           <a href="../vistas/registrarDispositivo.php"><button><img src="../recursos/imagenes/agregar.png" alt=""></button></a> 
-        </div>
-        <div id="cajaBuscar" name="cajaBuscar" >
-            <input type="text" placeholder="Buscar">
-        </div>
-        <div id="btnBuscarDispositivos" name="btnBuscarDispositivos">
-            <button><img src="../recursos/imagenes/buscar.png" alt=""></button>
-        </div>
-       
+        <?php endforeach; } ?> 
 
- <?php 
-    foreach ($datos as $dato):
- ?>
-   <section id="listaDispositivos" name="listaDispositivos">
-       <ul id="lNombre"><li> <?php echo $dato['nombre'] . " ("  . $dato['ubicacion'] . ")" ?></li></ul>
-      <a href="../vistas/protocolos.php"> <ul>Switch</ul></a>
-       <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
-       <div id="btnCajaBotones">
-            <button type="submit" class="btnLista">Editar</button>
-            <button type="submit" class="btn2Lista">Eliminar</button>
-       </div>
 
-   </section>
 
-   <?php endforeach; ?>
-   
 
-</div>
+    </div>
 </body>
+
 </html>

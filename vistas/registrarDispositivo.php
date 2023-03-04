@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <section class="form-register">
 
 
-            <form class="form" method="POSt" enctype="multipart/form-data">
+            <form class="form" method="POST" enctype="multipart/form-data">
                 <h2>Registrar dispositivo</h2>
 
                 <?php foreach ($errores as $error) : ?>

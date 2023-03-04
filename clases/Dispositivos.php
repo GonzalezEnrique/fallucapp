@@ -76,6 +76,14 @@ class Dispositivos{
         return $resultado;
     }
 
+    public function buscar($valor){
+        $con = new ConexionBD();
+        $con -> conectar();
+        $resultado =$con -> buscar("dispositivos","nombre",$valor);
+        return $resultado;
+
+    }
+
 
    
 }
