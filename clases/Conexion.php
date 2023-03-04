@@ -48,5 +48,15 @@ class ConexionBD {
         return $stmt->rowCount();
     }
 
+    public function buscar($tabla, $campo, $valor) {
+        $consulta = "SELECT * FROM $tabla WHERE $campo LIKE ?";
+        $parametros = ["%{$valor}%"];
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->execute($parametros);
+        $resultado = $stmt->fetchAll();
+        return $resultado;
+      }
+      
+
     
 }
