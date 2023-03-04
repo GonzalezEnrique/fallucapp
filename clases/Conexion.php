@@ -35,4 +35,18 @@ class ConexionBD {
         $resultado = $stmt->fetchAll();
         return $resultado;
     }
+
+    public function insertarDatos($tabla, $datos) {
+        // crear consulta preparada
+        $campos = array_keys($datos);
+        $valores = array_fill(0, count($datos), '?');
+        $consulta = "INSERT INTO $tabla (".implode(',', $campos).") VALUES (".implode(',', $valores).")";
+        // ejecutar consulta con parámetros
+        $parametros = array_values($datos);
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->execute($parametros);
+        return $stmt->rowCount();
+    }
+
+    
 }
