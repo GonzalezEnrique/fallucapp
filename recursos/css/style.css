@@ -129,6 +129,7 @@ h2
     padding: .8em 4em .8em 4em;
     border: none;
     border-radius: .5em;
+    text-decoration: none;
     
 }
 
@@ -180,6 +181,7 @@ h2
             width: 100%;
             margin-bottom: 2%;
             margin-top: 2%;
+            
         }
     
 }
@@ -213,5 +215,14 @@ h2
             width: 100%;
             margin-bottom: 2%;
             margin-top: 2%;
+            text-decoration: none;
         }
+}
+
+.alerta {
+    background-color: rgb(255, 52, 52);
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
 }

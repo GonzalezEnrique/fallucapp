@@ -213,3 +213,11 @@ box-sizing: border-box;
     height: auto;
 }
 }
+
+.alerta {
+    background-color: rgb(10, 158, 25);
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}

@@ -9,7 +9,9 @@ $tipo = '';
 $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-
+    if ($_POST['cancelar']){
+        header('location: /vistas/inventario.php');
+    }
     $nombre = $_POST['nombre'];
     $ubicacion = $_POST['ubicacion'];
     $descripcion = $_POST['descripcion'];
@@ -25,49 +27,50 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $errores[] = "Debes agregar un nombre de dispositivo";
     }
     if (!$ubicacion) {
-        $errores[] = "Debes agregar un nombre de dispositivo";
+        $errores[] = "La ubicacion es obligatoria";
     }
     if (!$descripcion) {
-        $errores[] = "la descripcion es obligatoria";
+        $errores[] = "La descripcion es obligatoria";
     }
     if (!$tipo) {
         $errores[] = "Selecciona el tipo de dispositivo";
     }
 
-    //if (empty($errores)) {
-    $carpetaConfig = "../recursos/archivosConfig/";
+    if (empty($errores)) {
+        $carpetaConfig = "../recursos/archivosConfig/";
 
-    if (!is_dir($carpetaConfig)) {
-        mkdir($carpetaConfig);
+        if (!is_dir($carpetaConfig)) {
+            mkdir($carpetaConfig);
+        }
+
+        if (!$configuracion['name']) {
+            $datos = array(
+                'nombre' => $nombre,
+                'ubicacion' => $ubicacion,
+                "configuracion" => "",
+                'descripcion' => $descripcion,
+                "idTipoDisp" => intval($tipo)
+            );
+
+            $dispositivos->agregarDispositivo($datos);
+            header('location: /vistas/inventario.php?alerta=1');
+        } else {
+            $nombreArchivo = md5(uniqid(rand(), true)) . $extension;
+            move_uploaded_file($configuracion['tmp_name'], $carpetaConfig . $nombreArchivo);
+            $datos = array(
+                "nombre" => $nombre,
+                "ubicacion" => $ubicacion,
+                "configuracion" => $nombreArchivo,
+                "descripcion" => $descripcion,
+                "idTipoDisp" => intval($tipo)
+            );
+            $dispositivos->agregarDispositivo($datos);
+
+            
+            header('location: /vistas/inventario.php?alerta=1');
+            
+        }
     }
-
-    if (!$configuracion['name']){
-        $datos = array(
-            'nombre' => $nombre,
-            'ubicacion' => $ubicacion,
-            "configuracion" => "",
-            'descripcion' => $descripcion,
-            "idTipoDisp" => intval($tipo)
-        );
-        
-        $dispositivos->agregarDispositivo($datos);
-    }
-    else {
-        $nombreArchivo = md5(uniqid(rand(), true)) . $extension;
-        move_uploaded_file($configuracion['tmp_name'], $carpetaConfig . $nombreArchivo);
-        $datos = array(
-            "nombre" => $nombre,
-            "ubicacion" => $ubicacion,
-            "configuracion" => $nombreArchivo,
-            "descripcion" => $descripcion,
-            "idTipoDisp" => intval($tipo) 
-        );
-        $dispositivos->agregarDispositivo($datos);
-    }
-   
-
-    // }
-
 }
 
 ?>
@@ -97,12 +100,21 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         </header>
 
         <section class="form-register">
+
+
             <form class="form" method="POSt" enctype="multipart/form-data">
                 <h2>Registrar dispositivo</h2>
+
+                <?php foreach ($errores as $error) : ?>
+                    <div class="alerta error">
+                        <?php echo $error ?>
+                    </div>
+
+                <?php endforeach ?>
                 <div class="form_container">
                     <div class="fg">
                         <label class="form_label" for="nombre">Nombre:</label>
-                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre del dispositivo">
+                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre del dispositivo" value="<?php echo $nombre?>">
                     </div>
                     <div class="fg">
                         <label class="form_label" for="tipo">Tipo:</label>
@@ -111,18 +123,18 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             <?php
                             foreach ($opciones as $opcion) :
                             ?>
-                                <option value="<?php echo $opcion['idTipoDisp'] ?>"><?php echo $opcion['tipo']; ?> </option>
+                                <option <?php echo $tipo == $opcion['idTipoDisp'] ? 'selected' : ''; ?> value="<?php echo $opcion['idTipoDisp'] ?>"><?php echo $opcion['tipo']; ?> </option>
                             <?php endforeach; ?>
 
                         </select>
                     </div>
                     <div class="fg">
                         <label class="form_label" for="ubicacion">Ubicación:</label>
-                        <input class="controls" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación del dispositivo">
+                        <input class="controls" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación del dispositivo" value="<?php echo $ubicacion?>">
                     </div>
                     <div class="fg">
                         <label class="form_label" for="descripcion">Descripción:</label>
-                        <textarea class="controls" name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
+                        <textarea class="controls" name="descripcion" id="descripcion" placeholder="Descripción"><?php echo $descripcion?></textarea>
                     </div>
                     <div class="fg">
                         <label class="form_label" for="configuracion">Configuración:</label>
@@ -130,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                     </div>
                 </div>
                 <input class="btnA" type="submit" value="Agregar">
-                <input class="btnC" type="submit" value="Cancelar">
+                <input name="cancelar" class="btnC" type="submit" value="Cancelar">
             </form>
 
         </section>

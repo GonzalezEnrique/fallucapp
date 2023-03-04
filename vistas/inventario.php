@@ -21,6 +21,7 @@ if ($pagina_actual > $total_paginas) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,6 +29,7 @@ if ($pagina_actual > $total_paginas) {
     <link rel="stylesheet" href="../recursos/css/styleEli.css">
     <title>Inventario</title>
 </head>
+
 <body>
     <header>
         <a href="../vistas/Fallucapp.php">
@@ -39,15 +41,21 @@ if ($pagina_actual > $total_paginas) {
         </a>
         <nav>
             <h1 id="h1Dis" name="h1Dis">Fallucapp</h1>
-         <!--  a href="" style="color: azure;">Regresar</a>--> 
-    
-        </nav>
-    </header>   
+            <!--  a href="" style="color: azure;">Regresar</a>-->
 
-    <h2 >Inventario</h2>
+        </nav>
+    </header>
+
+    <h2>Inventario</h2>
 
     <section id="listaInventario">
-        <?php foreach ($datos as $dato): ?>
+        <?php if ($_GET['alerta'] == 1) { ?>
+            <div class="alerta ">
+                <p>Dispositivo Agregado</p>
+            </div>
+
+        <?php } ?>
+        <?php foreach ($datos as $dato) : ?>
             <ul>
                 <li><a href="dispositivos.php?id=<?= $dato['idTipoDisp']; ?>"><?= $dato['tipo']; ?></a></li>
             </ul>
@@ -56,15 +64,16 @@ if ($pagina_actual > $total_paginas) {
         <?php endforeach; ?>
 
         <?php
-            if ($total_paginas != 1) {
-                for ($i = 1; $i <= $total_paginas; $i++):
+        if ($total_paginas != 1) {
+            for ($i = 1; $i <= $total_paginas; $i++) :
         ?>
-            <button><a href="inventario.php?page=<?= $i ?>"><?= $i ?></a></button>
+                <button><a href="inventario.php?page=<?= $i ?>"><?= $i ?></a></button>
         <?php
-                endfor;
-            }
+            endfor;
+        }
         ?>
     </section>
-    
+
 </body>
+
 </html>
