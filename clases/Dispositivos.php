@@ -61,11 +61,21 @@ class Dispositivos{
       
     }
 
-    public function agregarDispositivo($nombre, $ubicacion, $descripcion, $config, $tipo){
+    public function agregarDispositivo(array $params){
         $conn = new ConexionBD();
         $sql = "INSERT INTO dispositivos (nombre, ubicacion, descripcion, configuracion, idTipoDisp) VALUES 
-                ('$nombre', '$ubicacion', '$descripcion', '$config', $tipo;)";
+                (?, ?, ?, ? ,?)";
         $conn->conectar();
+        $resultado = $conn->ejecutarConsulta($sql, $params);
+        $conn->desconectar();
+    }
+
+    public function listarTipos(){
+        $conn = new ConexionBD();
+        $sql = "SELECT * FROM tipos_dispositivos";
+        $conn->conectar();
+        $resultado = $conn->ejecutarConsulta($sql);
+        return $resultado;
     }
 
 
