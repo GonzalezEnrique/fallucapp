@@ -70,7 +70,7 @@ public function actualizarFalla( $datos,$condicion){
 
 public function listarTiposF(){
     $conn = new ConexionBD();
-    $sql = "SELECT * FROM tipos_fallas";
+    $sql = "SELECT * FROM tipo_fallas";
     $conn->conectar();
     $resultado = $conn->ejecutarConsulta($sql);
     return $resultado;
