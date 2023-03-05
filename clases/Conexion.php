@@ -56,6 +56,19 @@ class ConexionBD {
         $resultado = $stmt->fetchAll();
         return $resultado;
       }
+
+      public function actualizar($tabla, $datos, $condicion) {
+        // crear consulta preparada
+        $campos = array_keys($datos);
+        $valores = array_map(function($campo) { return "$campo = ?"; }, $campos);
+        $consulta = "UPDATE $tabla SET ".implode(',', $valores)." WHERE $condicion";
+        // ejecutar consulta con parámetros
+        $parametros = array_values($datos);
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->execute($parametros);
+        return $stmt->rowCount();
+    }
+    
       
 
     
