@@ -192,6 +192,104 @@ h4
     font-family: 'Darker Grotesque', sans-serif;    
 }
 
+@media screen and (max-width: 1170px) {
+    #botonSubir
+    {
+        margin-top: 150px;
+        margin-left: 50px;
+    }
+
+    .estiloCaja
+    {
+        margin-left: -100px;
+        margin-top: -200px;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    #botonSubir
+    {
+        right: 0;
+        display: flex;
+        margin-top: 70px;
+        margin-left: 800px;
+    }
+
+    .estiloCaja
+    {
+        margin-left: -450px;
+        margin-top: -50px;
+    }
+
+    .claseLista
+    {
+        right: 0;
+        display: flex;
+        margin-right: 150px;
+        margin-top: 50px;
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 925px) {
+    #botonSubir
+    {
+        right: 0;
+        display: flex;
+        margin-top: 70px;
+        margin-left: 600px;
+    }
+
+    .estiloCaja
+    {
+        margin-top: -50px;
+    }
+}
+
+@media screen and (max-width:799px)
+{
+    .header
+    {
+        width: 782px;
+    }
+
+    .claseTitulo
+    {
+        text-align: center;
+        margin-top: 20px;
+        margin-left: 60px;
+    }
+
+    #botonSubir
+    {
+        margin-top: 380px;
+        margin-left: 120px;
+    }
+
+    #botonSubir h4
+    {
+        margin-left: -10px;
+    }
+
+    #imagenX img
+    {
+        height: 300px; 
+        width: 300px;
+        display: block;
+        margin-top: 110px;
+        margin-right: 150px;
+    }
+
+    .claseLista
+    {
+        right: 0;
+        display: flex;
+        margin-right: 110px;
+        margin-top: -120px;
+        position: absolute;
+    }
+}
+
 @media screen and (max-width:800px)
 {
     .header
