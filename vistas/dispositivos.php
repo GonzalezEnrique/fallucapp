@@ -93,8 +93,13 @@ if ($pagina_actual > $total_paginas) {
                     <?php } ?>
                     <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
                     <div id="btnCajaBotones">
-                        <button type="submit" class="btnLista">Editar</button>
-                        <button type="submit" class="btn2Lista">Eliminar</button>
+                        <a href="editarDispositivo.php?dispositivo=<?php echo $dato['idDispositivo'] ?>">
+                            <button type="submit" class="btnLista">Editar</button>
+                        </a>
+                        <a href="">
+                            <button type="submit" class="btn2Lista">Eliminar</button>
+                        </a>
+
                     </div>
 
                 </section>
@@ -125,8 +130,12 @@ if ($pagina_actual > $total_paginas) {
                     <?php } ?>
                     <ul id="lDescripcion"><?php echo $dato['descripcion'] ?></ul>
                     <div id="btnCajaBotones">
-                        <button type="submit" class="btnLista">Editar</button>
-                        <button type="submit" class="btn2Lista">Eliminar</button>
+                    <a href="editarDispositivo.php">
+                            <button type="submit" class="btnLista">Editar</button>
+                        </a>
+                        <a href="">
+                            <button type="submit" class="btn2Lista">Eliminar</button>
+                        </a>
                     </div>
 
                 </section>

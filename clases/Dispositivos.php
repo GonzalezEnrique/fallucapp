@@ -68,6 +68,13 @@ class Dispositivos{
         $conn->desconectar();
     }
 
+    public function actualizarDispositivo( $datos,$condicion){
+        $conn = new ConexionBD();
+        $conn->conectar();
+        $conn->actualizar('dispositivos',$datos,"idDispositivo",$condicion);
+        $conn->desconectar();
+    }
+
     public function listarTipos(){
         $conn = new ConexionBD();
         $sql = "SELECT * FROM tipos_dispositivos";
@@ -82,6 +89,14 @@ class Dispositivos{
         $resultado =$con -> buscar("dispositivos","nombre",$valor);
         return $resultado;
 
+    }
+
+    public function getDispositivo($id) {
+        $sql = "SELECT * FROM dispositivos WHERE idDispositivo = $id";
+        $con = new ConexionBD();
+        $con -> conectar();
+        $resultado =$con -> ejecutarConsulta($sql);
+        return $resultado;
     }
 
 

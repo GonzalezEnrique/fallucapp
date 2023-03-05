@@ -55,6 +55,13 @@ if ($pagina_actual > $total_paginas) {
             </div>
 
         <?php } ?>
+
+        <?php if ($_GET['alerta'] == 2) { ?>
+            <div class="alerta ">
+                <p>Dispositivo Actualizado</p>
+            </div>
+
+        <?php } ?>
         <?php foreach ($datos as $dato) : ?>
             <ul>
                 <li><a href="dispositivos.php?id=<?= $dato['idTipoDisp']; ?>"><?= $dato['tipo']; ?></a></li>

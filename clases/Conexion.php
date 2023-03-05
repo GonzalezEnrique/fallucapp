@@ -57,17 +57,19 @@ class ConexionBD {
         return $resultado;
       }
 
-      public function actualizar($tabla, $datos, $condicion) {
+      public function actualizar($tabla, $datos, $campoCondicion, $valorCondicion) {
         // crear consulta preparada
         $campos = array_keys($datos);
-        $valores = array_map(function($campo) { return "$campo = ?"; }, $campos);
-        $consulta = "UPDATE $tabla SET ".implode(',', $valores)." WHERE $condicion";
-        // ejecutar consulta con parámetros
+        $valores = array_fill(0, count($datos), '?');
         $parametros = array_values($datos);
+        $consulta = "UPDATE $tabla SET ".implode('=?,', $campos)."=? WHERE $campoCondicion=?";
+        $parametros[] = $valorCondicion;
+        // ejecutar consulta con parámetros
         $stmt = $this->conexion->prepare($consulta);
         $stmt->execute($parametros);
         return $stmt->rowCount();
     }
+    
     
       
 
