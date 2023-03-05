@@ -62,6 +62,12 @@ if ($pagina_actual > $total_paginas) {
             </div>
 
         <?php } ?>
+        <?php if ($_GET['alerta'] == 3) { ?>
+            <div class="alerta ">
+                <p>Dispositivo Eliminado</p>
+            </div>
+
+        <?php } ?>
         <?php foreach ($datos as $dato) : ?>
             <ul>
                 <li><a href="dispositivos.php?id=<?= $dato['idTipoDisp']; ?>"><?= $dato['tipo']; ?></a></li>

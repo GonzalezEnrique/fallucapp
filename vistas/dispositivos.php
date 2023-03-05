@@ -19,6 +19,20 @@ if ($pagina_actual > $total_paginas) {
     header('Location: dispositivos.php?page=1');
 }
 
+if ($_SERVER['REQUEST_METHOD']=="POST"){
+    $valor = $_POST["eliminar"];
+    $carpetaConfig = "../recursos/archivosConfig/";
+    $dispositivoEliminar = $dispositivos->getDispositivo(intval($valor));
+    if ($_POST["eliminar"]){
+        //var_dump($dispositivoEliminar);
+        unlink($carpetaConfig . $dispositivoEliminar[0]['configuracion']);
+        $dispositivos->eliminar($valor);
+        header('location: /vistas/inventario.php?alerta=3');
+    }
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -96,9 +110,13 @@ if ($pagina_actual > $total_paginas) {
                         <a href="editarDispositivo.php?dispositivo=<?php echo $dato['idDispositivo'] ?>">
                             <button type="submit" class="btnLista">Editar</button>
                         </a>
-                        <a href="">
-                            <button type="submit" class="btn2Lista">Eliminar</button>
-                        </a>
+                       
+                        <form action="" method="POST">
+                            <input type="hidden" name="eliminar" value="<?php echo $dato['idDispositivo'] ?>">
+                            <input type="submit" class="btn2Lista" value="Eliminar">
+                        </form>
+                        
+                        
 
                     </div>
 
@@ -133,9 +151,10 @@ if ($pagina_actual > $total_paginas) {
                     <a href="editarDispositivo.php">
                             <button type="submit" class="btnLista">Editar</button>
                         </a>
-                        <a href="">
-                            <button type="submit" class="btn2Lista">Eliminar</button>
-                        </a>
+                        <form  method="POST">
+                            <input type="hidden" name="eliminar" value="<?php echo $dato['idDispositivo'] ?>">
+                            <input name="eliminar" type="submit" class="btn2Lista" value="Eliminar">
+                        </form>
                     </div>
 
                 </section>

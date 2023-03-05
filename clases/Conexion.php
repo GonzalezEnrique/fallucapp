@@ -69,6 +69,15 @@ class ConexionBD {
         $stmt->execute($parametros);
         return $stmt->rowCount();
     }
+
+    public function eliminar($tabla, $campo, $valor) {
+        $consulta = "DELETE FROM $tabla WHERE $campo = ?";
+        $parametros = [$valor];
+        $stmt = $this->conexion->prepare($consulta);
+        $stmt->execute($parametros);
+        return $stmt->rowCount();
+    }
+    
     
     
       

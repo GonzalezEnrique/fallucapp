@@ -99,6 +99,14 @@ class Dispositivos{
         return $resultado;
     }
 
+    public function eliminar($valor){
+        
+        $con = new ConexionBD();
+        $con -> conectar();
+        $resultado =$con -> eliminar("dispositivos","idDispositivo",$valor);
+        $con->desconectar();
+    }
+
 
    
 }

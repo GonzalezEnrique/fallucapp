@@ -32,8 +32,8 @@
                 </div>
 
                 <div id="img2dispositivos" name="img2dispositivos">
-                    <a href="../vistas/dispositivos.php"> <img src="../recursos/imagenes/cableEthernet.png" width="120" height="120"> </a>
-                    <a href="../vistas/dispositivos.php" > <h2>Dispositivos</h2></a>
+                    <a href="../vistas/inventario.php"> <img src="../recursos/imagenes/cableEthernet.png" width="120" height="120"> </a>
+                    <a href="../vistas/inventario.php" > <h2>Dispositivos</h2></a>
                 </div>
                 
                 <div id="img3protocolos" name="img3protocolos">

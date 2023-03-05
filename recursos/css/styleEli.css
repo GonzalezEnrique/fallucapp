@@ -221,3 +221,10 @@ box-sizing: border-box;
     padding: 1rem 0;
     margin-bottom: 1rem;
 }
+
+#btnCajaBotones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
