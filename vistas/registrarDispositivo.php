@@ -10,7 +10,7 @@ $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if ($_POST['cancelar']){
-        header('location: /vistas/inventario.php');
+        header('location: inventario.php');
     }
     $nombre = $_POST['nombre'];
     $ubicacion = $_POST['ubicacion'];
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             );
 
             $dispositivos->agregarDispositivo($datos);
-            header('location: /vistas/inventario.php?alerta=1');
+            header('location: inventario.php?alerta=1');
         } else {
             $nombreArchivo = md5(uniqid(rand(), true)) . $extension;
             move_uploaded_file($configuracion['tmp_name'], $carpetaConfig . $nombreArchivo);
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $dispositivos->agregarDispositivo($datos);
 
             
-            header('location: /vistas/inventario.php?alerta=1');
+            header('location: inventario.php?alerta=1');
             
         }
     }

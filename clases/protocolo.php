@@ -2,41 +2,6 @@
 
 class protocolo {
 
-    private $id;
-    private $nombre;
-    private $tipo;
-
-    // function __construct($id, $nombre, $tipo)
-    // {
-    //     $this->id = $id;
-    //     $this->nombre = $nombre;
-    //     $this->tipo = $tipo;
-    // }
-
-    public function getId() {
-        return $this->id;
-    }
-
-    public function setId($id) {
-        $this->id = $id;
-    }
-
-    public function getNombre(){
-        return $this->nombre;
-    }
-
-    public function setNombre($nombre){
-        $this->nombre = $nombre;
-    }
-
-    public function getTipo(){
-        return $this->tipo;
-    }
-
-    public function setTipo($tipo){
-        $this->tipo = $tipo;
-    }
-
     public function add_protocolo($nombre, $url, $idTipoF) {
         $conn = new ConexionBD();
         $sql = "INSERT INTO protocolos(nombre, url, idTipoF) VALUES('$nombre', '$url', '$idTipoF')";
@@ -59,12 +24,7 @@ class protocolo {
         $sql2 = "SELECT * FROM protocolos INNER JOIN tipo_fallas 
         ON protocolos.idTipoF = tipo_fallas.idTipoF LIMIT $start_record, $total_page";
         $resultado = $conn->ejecutarConsulta($sql2);
-        
-        // Visualizar
-        // echo "<pre>";
-        // var_dump($resultado);
-        // echo "</pre>";
-        
+
         return [$resultado, $total, $page, $pages];
     }
 

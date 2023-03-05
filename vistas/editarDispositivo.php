@@ -14,7 +14,7 @@ $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if ($_POST['cancelar']) {
-        header('location: /vistas/inventario.php');
+        header('location: inventario.php');
     }
     $nombre = $_POST['nombre'];
     $ubicacion = $_POST['ubicacion'];
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $condicion = intval($id);
 
             $dispositivos->actualizarDispositivo($datos, $condicion);
-            header('location: /vistas/inventario.php?alerta=2');
+            header('location: inventario.php?alerta=2');
         } else {
             unlink($carpetaConfig . $nombreConfig);
             $nombreArchivo = md5(uniqid(rand(), true)) . $extension;
@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $dispositivos->actualizarDispositivo($datos, $condicion);
 
 
-            header('location: /vistas/inventario.php?alerta=2');
+            header('location: inventario.php?alerta=2');
         }
     }
 }
@@ -152,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 </div>
                 <input class="btnA" type="submit" value="Actualizar">
                 <input name="cancelar" class="btnC" type="submit" value="Cancelar">
+                </a>
             </form>
 
         </section>

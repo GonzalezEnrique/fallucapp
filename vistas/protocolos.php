@@ -3,10 +3,14 @@
 include '../clases/Fallas2.php';
 include '../clases/protocolo.php';
 
-
 $proto = new Protocolo();
 $tipos_fallas = new falla();
 $opciones = $tipos_fallas->listarTiposF();
+
+$pagina_actual = 1;
+if (isset($_GET['page'])) {
+    $pagina_actual = $_GET['page'];
+}
 
 if (isset($_POST['subir'])) {
     
@@ -19,19 +23,20 @@ if (isset($_POST['subir'])) {
 
     move_uploaded_file($protocolo['tmp_name'], $pathDestino);
     $proto->add_protocolo($protocolo['name'], $pathDestino, $_POST['tipo']);
-    //if (move_uploaded_file($protocolo['tmp_name'], $pathDestino)) {
-        //echo "Subido";
-    //} else {
-        //echo "No subido";
-        //}
 }
 
 if (isset($_GET['del'])) {
     $proto->delete_protocolo($_GET['del']);
 }
 
+$consulta = $proto->get_protocolos($pagina_actual);
+$lista_protocolos = $consulta[0];
+$pagina = $consulta[2];
+$total_paginas = $consulta[3];
 
-$lista_protocolos = $proto->get_protocolos()[0];
+if ($pagina_actual > $total_paginas) {
+    header('Location: protocolos.php?page=1');
+}
     
 ?>
 <!DOCTYPE html>
@@ -98,6 +103,15 @@ $lista_protocolos = $proto->get_protocolos()[0];
                         </li>
                     <?php endforeach; ?>
                 </ol>
+                <?php
+                if ($total_paginas != 1) {
+                    for ($i = 1; $i <= $total_paginas; $i++) :
+                ?>
+                        <button><a href="protocolos.php?page=<?= $i ?>"><?= $i ?></a></button>
+                <?php
+                    endfor;
+                }
+                ?>
             </div>
         </div>
 </body>
