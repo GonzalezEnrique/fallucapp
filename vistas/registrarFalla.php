@@ -1,3 +1,44 @@
+<?php
+
+include '../clases/Conexion.php';
+include '../clases/Dispositivos.php';
+include '../clases/Fallas2.php';
+
+$falla = new falla();
+$disp = new Dispositivos();
+
+$error = "";
+
+if (isset($_POST['registrar'])) {
+    $codigo = $_POST['codigo'];
+    $tipo = $_POST['tipo'];
+    $ubicacion = $_POST['ubicacion'];
+    $descripcion = $_POST['descripcion'];
+    $dispositivo = $_POST['dispositivo'];
+
+    $datos = array($codigo, $ubicacion, $descripcion, $dispositivo, $tipo);
+
+    foreach ($datos as $dato) {
+        if (empty(trim($dato))) {
+            $error = "Completa los campos restantes";
+        } else {
+            $falla->nuevaFalla($codigo, $ubicacion, $descripcion, $dispositivo, $tipo);
+            header('Location: Fallas.php');
+        }
+    }
+}
+
+
+
+$tipos_fallas = $falla->listarTiposF();
+$lista_dispositivos = $disp->get_dispositivos();
+
+// echo "<pre>";
+// var_dump($tipos_fallas);
+// var_dump($lista_dispositivos);
+// echo "</pre>";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,9 +64,14 @@
 
      
     <section id="form-register" name="form-register">
-        <form class="form">
+        <form class="form" method="post">
             <h2>Registrar falla</h2>
             <div class="form_container">
+            <?php if (!empty(trim($error))) : ?>
+                <div class="alerta error">
+                    <?php echo $error ?>
+                </div>
+            <?php endif; ?>
 
                 
                 <div class="fg">
@@ -34,12 +80,11 @@
                 </div>
     
                 <div class="fg">
-                    <label class="form_label">Nombre</label>
-                        <select class="controls" name="nombre" id="nombre">
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
+                    <label class="form_label">Tipo</label>
+                        <select class="controls" name="tipo" id="nombre">
+                            <?php foreach ($tipos_fallas as $tipo): ?>
+                                <option value="<?= $tipo['idTipoF']; ?>"><?= $tipo['tipo']; ?></option>
+                            <?php endforeach; ?>
                         </select>
                 </div>
     
@@ -56,13 +101,13 @@
                 <div class="fg">
                     <label class="form_label" >Dispositivo</label>
                         <select class="controls" name="dispositivo" id="dispositivo">
-                            <option></option>
-                            <option>Router</option>
-                            <option>Switch</option>
+                            <?php foreach ($lista_dispositivos as $elemento): ?>
+                                <option value="<?= $elemento['idTipoDisp']; ?>"><?= $elemento['nombre']; ?></option>
+                            <?php endforeach; ?>
                         </select>
         
                 </div>
-                <input class="boton" type="submit" value="Registrar">
+                <input class="boton" name="registrar" type="submit" value="Registrar">
                 <input class="botons" type="submit" value="Cancelar">
             </div>
         </form>       
