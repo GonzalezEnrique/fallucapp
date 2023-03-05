@@ -57,7 +57,7 @@ public function get_all_Fallas($page = 1, $tipoFalla) {
 public function nuevaFalla($codigo, $ubicacion, $descripcion, $dispositivo, $tipo) {
     $conn = new ConexionBD();
     $sql = "INSERT INTO fallas(codigo, ubicacion, descripcion, idDispositivo, idTipoF) 
-    VALUES ($codigo, $ubicacion, $descripcion, $dispositivo, $tipo)";
+    VALUES ('$codigo', '$ubicacion', '$descripcion', '$dispositivo', '$tipo')";
     $conn->conectar();
     $conn->ejecutarConsulta($sql);
 }
