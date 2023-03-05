@@ -1,6 +1,4 @@
 <?php
-include 'Conexion.php';
-
 class Dispositivos{
     private $id_Dispositivo;
     private $nombre;
@@ -56,9 +54,15 @@ class Dispositivos{
         $sql2 = "SELECT * FROM dispositivos WHERE idTipoDisp = $tipoDispositivo";
         $resultado = $conn->ejecutarConsulta($sql2);
         return [$resultado, $total, $page, $pages];
+    }
+
+    public function get_dispositivos() {
+        $conn = new ConexionBD();
+        $sql = 'SELECT * FROM dispositivos';
+        $conn->conectar();
         
-       
-      
+        $resultado = $conn->ejecutarConsulta($sql);
+        return $resultado;
     }
 
     public function agregarDispositivo($datos){

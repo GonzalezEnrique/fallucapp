@@ -1,7 +1,5 @@
 <?php
 
-include 'Conexion.php';
-
 class falla{
     private $id;
     private $codigo;

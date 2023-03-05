@@ -118,3 +118,11 @@ input.text{
     border: none;
     border-radius: .5em;
 }
+
+.alerta {
+    background-color: rgb(255, 52, 52);
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}

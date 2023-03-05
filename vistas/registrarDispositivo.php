@@ -1,4 +1,5 @@
 <?php
+include '../clases/Conexion.php';
 include '../clases/Dispositivos.php';
 $dispositivos = new Dispositivos();
 $opciones = $dispositivos->listarTipos();
@@ -110,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                         <?php echo $error ?>
                     </div>
 
-                <?php endforeach ?>
+                <?php endforeach; ?>
                 <div class="form_container">
                     <div class="fg">
                         <label class="form_label" for="nombre">Nombre:</label>

@@ -1,4 +1,5 @@
 <?php
+include '../clases/Conexion.php';
 include '../clases/Dispositivos.php';
 $dispositivos = new Dispositivos();
 $opciones = $dispositivos->listarTipos();

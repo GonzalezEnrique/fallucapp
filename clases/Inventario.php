@@ -1,7 +1,5 @@
 <?php
 
-include 'Conexion.php';
-
 class Inventario {
 
     public function get_all_inventario($page = 1) {

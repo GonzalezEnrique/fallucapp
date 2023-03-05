@@ -1,5 +1,6 @@
 <?php
 
+include '../clases/Conexion.php';
 include '../clases/Inventario.php';
 
 
