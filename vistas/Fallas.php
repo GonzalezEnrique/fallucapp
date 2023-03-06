@@ -3,7 +3,13 @@
 include '../clases/Conexion.php';
 include '../clases/Fallas2.php';
 
+
 $falla = new falla();
+
+if (isset($_GET['del'])) {
+    $falla->eliminar($_GET['del']);
+}
+
 $resultado = $falla->get_all_Fallas();
 
 $listado_fallas = $resultado[0];
@@ -60,7 +66,9 @@ $listado_fallas = $resultado[0];
                     <a href="registrarFalla.php?falla=<?= $falla['idFalla'] ?>">
                         <button class="BotonEditar">Editar</button>
                     </a>
-                    <button type="submit" class="BotonEliminar">Eliminar</button>
+                    <a href="Fallas.php?del=<?= $falla['idFalla'] ?>">
+                        <button class="BotonEliminar">Eliminar</button>
+                    </a>
                 </div>
                 <br>
                 <br>
