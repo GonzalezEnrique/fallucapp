@@ -11,8 +11,15 @@ if (isset($_GET['del'])) {
 }
 
 $resultado = $falla->get_all_Fallas();
-
 $listado_fallas = $resultado[0];
+
+if (isset($_POST['buscar'])) {
+    $buscado = $falla->buscar($_POST['buscar']);
+    $listado_fallas = $buscado;
+}
+
+//var_dump($buscado);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,12 +50,14 @@ $listado_fallas = $resultado[0];
             <div id="botonagregar" name="botonagregar">
             <button><a href=" ../vistas/registrarFalla.php"> <img src="../recursos/imagenes/agregar.png "> </a></button> 
    </div>
+        <form method="post">
             <div for="cajaTexto" id="cajaTexto" name="cajaTexto">
                 <input type="text" name="buscar" placeholder="Buscar">
             </div>
             <div id="botonbuscar" name="botonbuscar">
-            <button><img src="../recursos/imagenes/buscar.png" alt=""></button>
+            <button type="submit"><img src="../recursos/imagenes/buscar.png" alt=""></button>
         </div>
+        </form>
 
                 <section id="lista" name="lista">
                         <nav>

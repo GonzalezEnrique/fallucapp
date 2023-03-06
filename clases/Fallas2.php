@@ -81,7 +81,7 @@ public function listarTiposF(){
 public function buscar($valor){
     $con = new ConexionBD();
     $con -> conectar();
-    $resultado =$con -> buscar("fallas","nombre",$valor);
+    $resultado =$con -> buscar("fallas","codigo",$valor);
     return $resultado;
 
 }
