@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
         //var_dump($dispositivoEliminar);
         unlink($carpetaConfig . $dispositivoEliminar[0]['configuracion']);
         $dispositivos->eliminar($valor);
-        header('location: /vistas/inventario.php?alerta=3');
+        header('location: inventario.php?alerta=3');
     }
 }
 
