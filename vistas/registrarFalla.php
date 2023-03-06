@@ -16,16 +16,23 @@ if (isset($_POST['registrar'])) {
     $descripcion = $_POST['descripcion'];
     $dispositivo = $_POST['dispositivo'];
 
-    $datos = array($codigo, $ubicacion, $descripcion, $dispositivo, $tipo);
+    $datos = array(
+        "codigo" => $codigo, 
+        "ubicacion" => $ubicacion, 
+        "descripcion" => $descripcion, 
+        "idDispositivo" => $dispositivo, 
+        "idTipoF" => $tipo);
 
     foreach ($datos as $dato) {
         if (empty(trim($dato))) {
             $error = "Completa los campos restantes";
+            break;
         } else {
-            $falla->nuevaFalla($codigo, $ubicacion, $descripcion, $dispositivo, $tipo);
-            header('Location: Fallas.php');
+            $falla->agregarFalla($datos);
+            break;
         }
     }
+    header('Location: Fallas.php');
 }
 
 
