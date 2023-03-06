@@ -35,9 +35,11 @@ class falla{
 public function get_buscador(){
     return $this->buscador;
 }
-public function get_all_Fallas($page = 1, $tipoFalla) {
+public function get_all_Fallas($page = 1) {
     $conn = new ConexionBD();
-    $sql = 'SELECT * FROM fallas';
+    $sql = 'SELECT * FROM fallas 
+    INNER JOIN dispositivos ON fallas.idDispositivo = dispositivos.idDispositivo
+    INNER JOIN tipo_fallas ON fallas.idTipoF = tipo_fallas.idTipoF';
     $conn->conectar();
     
     $datos = $conn->ejecutarConsulta($sql);
@@ -46,20 +48,12 @@ public function get_all_Fallas($page = 1, $tipoFalla) {
     $pages = ceil($total / $total_page);
      
     $start_record = ($page - 1) * $total_page;
-    $sql2 =sprintf("SELECT * FROM falla WHERE idTipoF = '%s'", $tipoFalla);
-    $resultado = $conn->ejecutarConsulta($sql2);
-    return [$resultado, $total, $page, $pages];
+    //$sql2 =sprintf("SELECT * FROM falla WHERE idTipoF = '%s'", $tipoFalla);
+    //$resultado = $conn->ejecutarConsulta($sql2);
+    return [$datos, $total, $page, $pages];
     
    
   
-}
-
-public function nuevaFalla($codigo, $ubicacion, $descripcion, $dispositivo, $tipo) {
-    $conn = new ConexionBD();
-    $sql = "INSERT INTO fallas(codigo, ubicacion, descripcion, idDispositivo, idTipoF) 
-    VALUES ('$codigo', '$ubicacion', '$descripcion', '$dispositivo', '$tipo')";
-    $conn->conectar();
-    $conn->ejecutarConsulta($sql);
 }
 
 public function agregarFalla($datos){
@@ -93,7 +87,10 @@ public function buscar($valor){
 }
 
 public function getFalla($id) {
-    $sql = sprintf("SELECT * FROM fallas WHERE idfalla = '%s'",$id);
+    $sql = sprintf("SELECT * FROM fallas 
+    INNER JOIN dispositivos ON fallas.idDispositivo = dispositivos.idDispositivo 
+    INNER JOIN tipo_fallas ON fallas.idTipoF = tipo_fallas.idTipoF 
+    WHERE idfalla = $id");
     $con = new ConexionBD();
     $con -> conectar();
     $resultado =$con -> ejecutarConsulta($sql);

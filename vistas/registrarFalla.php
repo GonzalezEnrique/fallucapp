@@ -8,6 +8,14 @@ $falla = new falla();
 $disp = new Dispositivos();
 
 $error = "";
+$idFalla = null;
+$resultado = [];
+
+if (isset($_GET['falla'])) {
+    $idFalla = $_GET['falla'];
+    $resultado = $falla->getFalla($idFalla);
+
+}
 
 if (isset($_POST['registrar'])) {
     $codigo = $_POST['codigo'];
@@ -15,11 +23,13 @@ if (isset($_POST['registrar'])) {
     $ubicacion = $_POST['ubicacion'];
     $descripcion = $_POST['descripcion'];
     $dispositivo = $_POST['dispositivo'];
+    $estado = $_POST['estado'];
 
     $datos = array(
         "codigo" => $codigo, 
         "ubicacion" => $ubicacion, 
-        "descripcion" => $descripcion, 
+        "descripcionFalla" => $descripcion, 
+        "estado" => $estado, 
         "idDispositivo" => $dispositivo, 
         "idTipoF" => $tipo);
 
@@ -28,10 +38,18 @@ if (isset($_POST['registrar'])) {
             $error = "Completa los campos restantes";
             break;
         } else {
-            $falla->agregarFalla($datos);
+            if (!isset($_GET['falla'])) {
+                $falla->agregarFalla($datos);
+            } else {
+                $falla->actualizarFalla($datos, $idFalla);
+            }
             break;
         }
     }
+    header('Location: Fallas.php');
+}
+
+if (isset($_POST['cancelar'])) {
     header('Location: Fallas.php');
 }
 
@@ -83,39 +101,66 @@ $lista_dispositivos = $disp->get_dispositivos();
                 
                 <div class="fg">
                     <label class="form_label" >Código</label>
-                    <input class="controls" type="text" name="codigo" id="codigo">
+                    <input class="controls" type="text" name="codigo" id="codigo" 
+                    value="<?= $resultado[0]['codigo']; ?>">
                 </div>
     
                 <div class="fg">
                     <label class="form_label">Tipo</label>
                         <select class="controls" name="tipo" id="nombre">
                             <?php foreach ($tipos_fallas as $tipo): ?>
-                                <option value="<?= $tipo['idTipoF']; ?>"><?= $tipo['tipo']; ?></option>
+                                <option value="<?= $tipo['idTipoF']; ?>"
+                                 <?php if ($resultado[0]['idTipoF'] == $tipo['idTipoF']) {
+                                    ?> selected 
+                                    <?php } ?>><?= $tipo['tipo']; ?></option>
                             <?php endforeach; ?>
                         </select>
                 </div>
     
                 <div class="fg">
                     <label class="form_label" >Ubicación</label>
-                    <input class="controls" type="text" name="ubicacion">
+                    <input class="controls" type="text" name="ubicacion" 
+                    value="<?= $resultado[0]['ubicacion']; ?>">
                 </div>
     
                 <div class="fg">
                     <label class="form_label" >Descripción</label>
-                    <textarea class="controls" name="descripcion"></textarea>
+                    <textarea class="controls" name="descripcion">
+                        <?= trim($resultado[0]['descripcionFalla']); ?>
+                    </textarea>
                 </div>
     
                 <div class="fg">
                     <label class="form_label" >Dispositivo</label>
                         <select class="controls" name="dispositivo" id="dispositivo">
                             <?php foreach ($lista_dispositivos as $elemento): ?>
-                                <option value="<?= $elemento['idTipoDisp']; ?>"><?= $elemento['nombre']; ?></option>
+                                <option value="<?= $elemento['idTipoDisp']; ?>" 
+                                <?php if (strcmp($resultado[0]['nombre'], $elemento['nombre']) == 0) {
+                                    ?> selected 
+                                    <?php } ?>><?= $elemento['nombre']; ?></option>
                             <?php endforeach; ?>
                         </select>
-        
                 </div>
+
+                <?php if (isset($_GET['falla'])): ?>
+                    <div class="fg">
+                        <label class="form_label" >Dispositivo</label>
+                        <select class="controls" name="estado" id="dispositivo">
+                            <option value="0" 
+                            <?php if ($resultado[0]['estado'] == 0) { ?>
+                                selected
+                            <?php } ?>>Pendiente</option>
+                            <option value="1" 
+                            <?php if ($resultado[0]['estado'] == 1) { ?>
+                                selected
+                            <?php } ?>>Resuelta</option>
+                        </select>
+                    </div>
+                <?php endif; ?>
+
+
                 <input class="boton" name="registrar" type="submit" value="Registrar">
-                <input class="botons" type="submit" value="Cancelar">
+                <input class="botons" name="cancelar" type="submit" value="Cancelar">
             </div>
         </form>       
     </section>   

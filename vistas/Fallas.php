@@ -1,7 +1,12 @@
 <?php
 
 include '../clases/Conexion.php';
+include '../clases/Fallas2.php';
 
+$falla = new falla();
+$resultado = $falla->get_all_Fallas();
+
+$listado_fallas = $resultado[0];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,21 +47,30 @@ include '../clases/Conexion.php';
                 <section id="lista" name="lista">
                         <nav>
         <ul class="">
-            <li>id</li>
-            <li>codigo</li>
-            <li>tipo</li>
-            <li>descripcion</li>
-            <li>ubicacion</li>
-            <li>dispositivos</li>
+            <?php foreach ($listado_fallas as $falla): ?>
+                <li>
+                    <h3 style="<?php if ($falla['estado'] == 0) {?>color: red; <?php } else { ?>color: black; <?php } ?>"><?= $falla['codigo'] . 
+                        '(' . $falla['tipo'] . '-' . $falla['ubicacion'] . ')'; ?>
+                    </h3>
+                </li>
+                <b><?= $falla['nombre']; ?></b>
+                <p><?= $falla['descripcionFalla']; ?></p>
+                <br>
+                <div id="Botones">
+                    <a href="registrarFalla.php?falla=<?= $falla['idFalla'] ?>">
+                        <button class="BotonEditar">Editar</button>
+                    </a>
+                    <button type="submit" class="BotonEliminar">Eliminar</button>
+                </div>
+                <br>
+                <br>
+            <?php endforeach; ?>
         </ul>
     </nav>
   
-                    <div id="Botones">
-                        <button type="submit" class="BotonEditar">Editar</button>
-                        <button type="submit" class="BotonEliminar">Eliminar</button>
-                    </div>
+        
 
-                </section>
+    </section>
 
        
  
